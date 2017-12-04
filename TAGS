@@ -1,0 +1,2696 @@
+
+thirdparty/Sophus/sophus/test_se2.cpp,218
+void tests(34,1344
+  typedef SO2Group<Scalar> SO2Type;36,1360
+  typedef SE2Group<Scalar> SE2Type;37,1396
+  typedef typename SE2Group<SE2Group38,1432
+  typedef typename SE2Group<SE2Group39,1482
+int main(81,2776
+
+thirdparty/Sophus/sophus/test_so3.cpp,174
+void tests(33,1299
+  typedef SO3Group<Scalar> SO3Type;35,1315
+  typedef typename SO3Group<SO3Group36,1351
+  typedef typename SO3Group<SO3Group37,1401
+int main(75,2803
+
+thirdparty/Sophus/sophus/rxso3.hpp,5527
+#define RXSO3_HPP24,1175
+namespace Sophus 33,1426
+template<typename _Scalar,34,1445
+template<typename _Scalar, int _Options=34,1445
+typedef RxSO3Group<double> ScSO3 EIGEN_DEPRECATED;35,1506
+typedef RxSO3Group<double> RxSO3d;36,1557
+typedef RxSO3Group<float> RxSO3f;37,1623
+namespace Eigen 44,1910
+namespace internal 45,1928
+template<typename _Scalar,47,1950
+struct traits<traits48,1991
+  typedef _Scalar Scalar;49,2046
+  typedef Quaternion<Scalar> QuaternionType;50,2072
+template<typename _Scalar,53,2121
+struct traits<traits54,2162
+  typedef _Scalar Scalar;56,2276
+  typedef Map<Quaternion<Quaternion57,2302
+  typedef Map<Quaternion<Scalar>,_Options> QuaternionType;57,2302
+template<typename _Scalar,60,2365
+struct traits<traits61,2406
+  typedef _Scalar Scalar;63,2532
+  typedef Map<const Quaternion<Quaternion64,2558
+  typedef Map<const Quaternion<Scalar>,_Options> QuaternionType;64,2558
+namespace Sophus 70,2632
+class ScaleNotPositive 73,2675
+  ScaleNotPositive 75,2733
+class RxSO3GroupBase 98,3696
+  typedef typename internal::traits<Derived>::Scalar Scalar;101,3802
+  QuaternionReference;104,3968
+  ConstQuaternionReference;107,4108
+  static const int DoF 112,4235
+  static const int num_parameters 115,4365
+  static const int N 117,4459
+  typedef Matrix<Scalar,Scalar119,4526
+  typedef Matrix<Scalar,N,119,4526
+  typedef Matrix<Scalar,N,N> Transformation;119,4526
+  typedef Matrix<Scalar,Scalar121,4598
+  typedef Matrix<Scalar,3,1> Point;121,4598
+  typedef Matrix<Scalar,Scalar123,4670
+  typedef Matrix<Scalar,DoF,123,4670
+  typedef Matrix<Scalar,DoF,1> Tangent;123,4670
+  typedef Matrix<Scalar,Scalar125,4754
+  typedef Matrix<Scalar,DoF,125,4754
+  typedef Matrix<Scalar,DoF,DoF> Adjoint;125,4754
+  const Adjoint Adj(140,5212
+  inline RxSO3Group<NewScalarType> cast(151,5463
+  inline Scalar* data(165,5951
+  inline const Scalar* data(174,6115
+  void fastMultiply(186,6333
+  const RxSO3Group<Scalar> inverse(195,6495
+  const Tangent log(210,6852
+  const Transformation matrix(222,7182
+  RxSO3GroupBase<Derived>& operator=operator=234,7518
+  const RxSO3Group<Scalar> operator*(245,7743
+  const Point operator*(263,8303
+  void operator*=(operator*=276,8650
+  QuaternionReference quaternion(284,8816
+  ConstQuaternionReference quaternion(292,8981
+  Transformation rotationMatrix(300,9145
+  const Scalar scale(311,9409
+  void setRotationMatrix(322,9698
+  void setScale(332,9913
+  void setScaledRotationMatrix345,10267
+  const Adjoint d_lieBracketab_by_d_a(377,11307
+  const RxSO3Group<Scalar> exp(400,11982
+  const RxSO3Group<Scalar> expAndTheta(416,12454
+  const Transformation generator(459,13973
+  const Transformation hat(484,14662
+  const Tangent lieBracket(510,15429
+  const Tangent log(537,16339
+  const Tangent logAndTheta(553,16816
+  const Tangent vee(575,17494
+template<typename _Scalar,587,17974
+class RxSO3Group 588,18015
+  typedef RxSO3GroupBase<RxSO3Group<RxSO3Group589,18089
+  typedef RxSO3GroupBase<RxSO3Group<_Scalar,_Options> > Base;589,18089
+  typedef typename internal::traits<internal::traits592,18187
+  ::Scalar Scalar;593,18252
+  typedef typename internal::traits<internal::traits595,18313
+  ::QuaternionType & QuaternionReference;596,18378
+  typedef const typename internal::traits<internal::traits598,18468
+  ::QuaternionType & ConstQuaternionReference;599,18539
+  static const int DoF 602,18630
+  static const int num_parameters 604,18717
+  static const int N 606,18830
+  typedef typename Base::Transformation Transformation;608,18903
+  typedef typename Base::Point Point;610,18986
+  typedef typename Base::Tangent Tangent;612,19060
+  typedef typename Base::Adjoint Adjoint;614,19146
+  inline RxSO3Group(623,19332
+  RxSO3Group(632,19575
+  RxSO3Group(642,19838
+  RxSO3Group(653,20118
+  RxSO3Group(668,20463
+  RxSO3Group(683,20834
+  QuaternionReference quaternion(693,21087
+  ConstQuaternionReference quaternion(701,21222
+  Quaternion<Scalar> quaternion_;706,21310
+namespace Eigen 712,21369
+template<typename _Scalar,719,21546
+class Map<Map720,21587
+  typedef Sophus::RxSO3GroupBase<Map<Map723,21723
+  Base;724,21801
+  typedef typename internal::traits<Map>::Scalar Scalar;728,21846
+  QuaternionReference;731,22004
+  ConstQuaternionReference;734,22140
+  typedef typename Base::Transformation Transformation;743,22485
+  typedef typename Base::Point Point;745,22568
+  typedef typename Base::Tangent Tangent;747,22642
+  typedef typename Base::Adjoint Adjoint;749,22728
+  using Base::operator*;Base::operator*;753,22844
+  QuaternionReference quaternion(763,23011
+  ConstQuaternionReference quaternion(771,23146
+  Map<Map776,23234
+  Map<Quaternion<Scalar>,_Options> quaternion_;776,23234
+template<typename _Scalar,785,23451
+class Map<Map786,23492
+  Map<Map790,23675
+  Map<const Sophus::RxSO3Group<_Scalar>, _Options> > Base;790,23675
+  typedef typename internal::traits<Map>::Scalar Scalar;794,23771
+  ConstQuaternionReference;797,23941
+  static const int DoF 800,24013
+  static const int num_parameters 802,24100
+  static const int N 804,24213
+  typedef typename Base::Transformation Transformation;806,24286
+  typedef typename Base::Point Point;808,24369
+  typedef typename Base::Tangent Tangent;810,24443
+  typedef typename Base::Adjoint Adjoint;812,24529
+  using Base::operator*;Base::operator*;816,24645
+  ConstQuaternionReference quaternion(828,24909
+  const Map<Map833,24997
+  const Map<const Quaternion<Scalar>,_Options> quaternion_;833,24997
+
+thirdparty/Sophus/sophus/so3.hpp,5301
+#define SOPHUS_SO3_HPP25,1213
+namespace Sophus 33,1450
+template<typename _Scalar,34,1469
+template<typename _Scalar, int _Options=34,1469
+typedef EIGEN_DEPRECATED SO3Group<double> SO3;35,1528
+typedef SO3Group<double> SO3d;36,1575
+typedef SO3Group<float> SO3f;37,1635
+namespace Eigen 44,1916
+namespace internal 45,1934
+template<typename _Scalar,47,1956
+struct traits<traits48,1997
+  typedef _Scalar Scalar;49,2050
+  typedef Quaternion<Scalar> QuaternionType;50,2076
+template<typename _Scalar,53,2125
+struct traits<traits54,2166
+  typedef _Scalar Scalar;56,2276
+  typedef Map<Quaternion<Quaternion57,2302
+  typedef Map<Quaternion<Scalar>,_Options> QuaternionType;57,2302
+template<typename _Scalar,60,2365
+struct traits<traits61,2406
+  typedef _Scalar Scalar;63,2528
+  typedef Map<const Quaternion<Quaternion64,2554
+  typedef Map<const Quaternion<Scalar>,_Options> QuaternionType;64,2554
+namespace Sophus 70,2628
+class SO3GroupBase 79,2824
+  typedef typename internal::traits<Derived>::Scalar Scalar;82,2881
+  QuaternionReference;85,3048
+  ConstQuaternionReference;88,3189
+  typedef Matrix<Scalar,Scalar99,3579
+  typedef Matrix<Scalar,N,99,3579
+  typedef Matrix<Scalar,N,N> Transformation;99,3579
+  typedef Matrix<Scalar,Scalar101,3651
+  typedef Matrix<Scalar,3,1> Point;101,3651
+  typedef Matrix<Scalar,Scalar103,3723
+  typedef Matrix<Scalar,DoF,103,3723
+  typedef Matrix<Scalar,DoF,1> Tangent;103,3723
+  typedef Matrix<Scalar,Scalar105,3807
+  typedef Matrix<Scalar,DoF,105,3807
+  typedef Matrix<Scalar,DoF,DoF> Adjoint;105,3807
+  const Adjoint Adj(118,4264
+  inline SO3Group<NewScalarType> cast(126,4422
+  inline Scalar* data(143,5040
+  inline const Scalar* data(152,5218
+  void fastMultiply(165,5555
+  const SO3Group<Scalar> inverse(173,5733
+  const Tangent log(185,5992
+  void normalize(196,6281
+  const Transformation matrix(211,6733
+  SO3GroupBase<Derived>& operator=(operator=219,6912
+  const SO3Group<Scalar> operator*(229,7149
+  const Point operator*(255,8045
+  void operator*=(operator*=266,8264
+  void setQuaternion(280,8572
+  ConstQuaternionReference unit_quaternion(291,8859
+  const Adjoint d_lieBracketab_by_d_a(309,9490
+  const SO3Group<Scalar> exp(328,10033
+  const SO3Group<Scalar> expAndTheta(343,10463
+  const Transformation generator(398,12542
+  const Transformation hat(423,13247
+  const Tangent lieBracket(453,14325
+  const Tangent log(475,14996
+  const Tangent logAndTheta(491,15447
+  const Tangent vee(545,17188
+  QuaternionReference unit_quaternion_nonconst(555,17595
+template<typename _Scalar,564,17806
+class SO3Group 565,17847
+  typedef SO3GroupBase<SO3Group<SO3Group566,17915
+  typedef SO3GroupBase<SO3Group<_Scalar,_Options> > Base;566,17915
+  typedef typename internal::traits<internal::traits569,18009
+  ::Scalar Scalar;570,18074
+  typedef typename internal::traits<internal::traits572,18125
+  ::QuaternionType & QuaternionReference;573,18190
+  typedef const typename internal::traits<internal::traits574,18232
+  ::QuaternionType & ConstQuaternionReference;575,18303
+  static const int DoF 578,18394
+  static const int num_parameters 580,18481
+  static const int N 582,18594
+  typedef typename Base::Transformation Transformation;584,18667
+  typedef typename Base::Point Point;586,18750
+  typedef typename Base::Tangent Tangent;588,18824
+  typedef typename Base::Adjoint Adjoint;590,18910
+  SO3Group(603,19228
+  SO3Group(612,19472
+  inline SO3Group(621,19712
+  SO3Group(631,19902
+  SO3Group(650,20652
+  ConstQuaternionReference unit_quaternion(665,21160
+  QuaternionReference unit_quaternion_nonconst(673,21387
+  Quaternion<Scalar> unit_quaternion_;677,21472
+namespace Eigen 683,21536
+template<typename _Scalar,690,21709
+class Map<Map691,21750
+  typedef Sophus::SO3GroupBase<Map<Map693,21876
+  typedef Sophus::SO3GroupBase<Map<Sophus::SO3Group<_Scalar>, _Options> > Base;693,21876
+  typedef typename internal::traits<Map>::Scalar Scalar;697,21993
+  QuaternionReference;700,22151
+  ConstQuaternionReference;703,22287
+  typedef typename Base::Transformation Transformation;712,22632
+  typedef typename Base::Point Point;714,22715
+  typedef typename Base::Tangent Tangent;716,22789
+  typedef typename Base::Adjoint Adjoint;718,22875
+  using Base::operator*;Base::operator*;725,23146
+  ConstQuaternionReference unit_quaternion(737,23409
+  QuaternionReference unit_quaternion_nonconst(745,23636
+  Map<Map749,23721
+  Map<Quaternion<Scalar>,_Options> unit_quaternion_;749,23721
+template<typename _Scalar,758,23939
+class Map<Map759,23980
+  typedef Sophus::SO3GroupBase<Map<Map762,24123
+  Base;763,24203
+  typedef typename internal::traits<Map>::Scalar Scalar;767,24248
+  ConstQuaternionReference;770,24418
+  static const int DoF 773,24490
+  static const int num_parameters 775,24577
+  static const int N 777,24690
+  typedef typename Base::Transformation Transformation;779,24763
+  typedef typename Base::Point Point;781,24846
+  typedef typename Base::Tangent Tangent;783,24920
+  typedef typename Base::Adjoint Adjoint;785,25006
+  using Base::operator*;Base::operator*;789,25122
+  const ConstQuaternionReference unit_quaternion(801,25391
+  const Map<Map806,25495
+  const Map<const Quaternion<Scalar>,_Options> unit_quaternion_;806,25495
+
+thirdparty/Sophus/sophus/test_rxso3.cpp,186
+void tests(34,1302
+  typedef RxSO3Group<Scalar> RxSO3Type;36,1318
+  typedef typename RxSO3Group<RxSO3Group37,1358
+  typedef typename RxSO3Group<RxSO3Group38,1410
+int main(83,2985
+
+thirdparty/Sophus/sophus/tests.hpp,1026
+#define SOPUHS_TESTS_HPP2,25
+namespace Sophus 9,138
+class Tests 15,229
+  typedef typename LieGroup::Scalar Scalar;18,252
+  typedef typename LieGroup::Transformation Transformation;19,296
+  typedef typename LieGroup::Tangent Tangent;20,356
+  typedef typename LieGroup::Point Point;21,402
+  typedef typename LieGroup::Adjoint Adjoint;22,444
+  const Scalar SMALL_EPS;26,567
+  Tests(28,594
+  void setGroupElements(31,659
+  void setTangentVectors(35,755
+  void setPoints(39,857
+  bool adjointTest(43,943
+  bool expLogTest(70,1738
+  bool expMapTest(90,2268
+  bool groupActionTest(113,2936
+  bool lieBracketTest(136,3564
+  bool mapAndMultTest(158,4293
+  bool veeHatTest(182,5174
+  void runAllTests(200,5612
+  Matrix<Matrix240,6470
+  Matrix<Scalar,N-1,1> map(240,6470
+  Matrix<Matrix246,6688
+  Matrix<Scalar,N,1> map(246,6688
+  Scalar norm(251,6821
+  Scalar norm(255,6884
+  std::vector<LieGroup> group_vec_;259,6958
+  std::vector<Tangent> tangent_vec_;260,6994
+  std::vector<Point> point_vec_;261,7031
+
+thirdparty/Sophus/sophus/se2.hpp,6756
+#define SOPHUS_SE2_HPP24,1173
+namespace Sophus 32,1407
+template<typename _Scalar,33,1426
+template<typename _Scalar, int _Options=33,1426
+typedef SE2Group<double> SE2 EIGEN_DEPRECATED;34,1485
+typedef SE2Group<double> SE2d;35,1532
+typedef SE2Group<float> SE2f;36,1592
+namespace Eigen 43,1873
+namespace internal 44,1891
+template<typename _Scalar,46,1913
+struct traits<traits47,1954
+  typedef _Scalar Scalar;48,2007
+  typedef Matrix<Scalar,Scalar49,2033
+  typedef Matrix<Scalar,2,1> TranslationType;49,2033
+  typedef Sophus::SO2Group<Scalar> SO2Type;50,2079
+template<typename _Scalar,53,2127
+struct traits<traits54,2168
+  typedef _Scalar Scalar;56,2278
+  typedef Map<Matrix<Matrix57,2304
+  typedef Map<Matrix<Scalar,2,1>,_Options> TranslationType;57,2304
+  typedef Map<Sophus::SO2Group<Sophus::SO2Group58,2364
+  typedef Map<Sophus::SO2Group<Scalar>,_Options> SO2Type;58,2364
+template<typename _Scalar,61,2426
+struct traits<traits62,2467
+  typedef _Scalar Scalar;64,2589
+  typedef Map<const Matrix<Matrix65,2615
+  typedef Map<const Matrix<Scalar,2,1>,_Options> TranslationType;65,2615
+  typedef Map<const Sophus::SO2Group<Sophus::SO2Group66,2681
+  typedef Map<const Sophus::SO2Group<Scalar>,_Options> SO2Type;66,2681
+namespace Sophus 72,2754
+class SE2GroupBase 82,2971
+  typedef typename internal::traits<Derived>::Scalar Scalar;85,3028
+  TranslationReference;88,3196
+  ConstTranslationReference;91,3339
+  SO2Reference;94,3459
+  ConstSO2Reference;97,3562
+  typedef Matrix<Scalar,Scalar108,4000
+  typedef Matrix<Scalar,N,108,4000
+  typedef Matrix<Scalar,N,N> Transformation;108,4000
+  typedef Matrix<Scalar,Scalar110,4072
+  typedef Matrix<Scalar,2,1> Point;110,4072
+  typedef Matrix<Scalar,Scalar112,4144
+  typedef Matrix<Scalar,DoF,112,4144
+  typedef Matrix<Scalar,DoF,1> Tangent;112,4144
+  typedef Matrix<Scalar,Scalar114,4228
+  typedef Matrix<Scalar,DoF,114,4228
+  typedef Matrix<Scalar,DoF,DoF> Adjoint;114,4228
+  const Adjoint Adj(125,4593
+  inline SE2Group<NewScalarType> cast(139,4955
+  void fastMultiply(154,5417
+  const SE2Group<Scalar> inverse(163,5623
+  const Tangent log(178,6032
+  void normalize(189,6289
+  const Transformation matrix(197,6411
+  const Matrix<Matrix211,6804
+  const Matrix<Scalar,2,3> matrix2x3(211,6804
+  SE2GroupBase<Derived>& operator= operator=222,7072
+  const SE2Group<Scalar> operator*(233,7318
+  const Point operator*(251,7898
+  void operator*=(operator*=262,8103
+  const Matrix<Matrix272,8253
+  const Matrix<Scalar,2,2> rotationMatrix(272,8253
+  void setComplex(285,8556
+  void setRotationMatrix(296,8850
+  SO2Reference so2(305,9106
+  ConstSO2Reference so2(313,9249
+  TranslationReference translation(321,9417
+  ConstTranslationReference translation(329,9593
+  unit_complex(341,9937
+  const Transformation d_lieBracketab_by_d_a(359,10508
+  const SE2Group<Scalar> exp(389,11494
+  const Transformation generator(439,13313
+  const Transformation hat(464,14018
+  const Tangent lieBracket(490,14855
+  const Tangent log(519,15825
+  const Tangent vee(555,17085
+template<typename _Scalar,567,17444
+class SE2Group 568,17485
+  typedef SE2GroupBase<SE2Group<SE2Group569,17553
+  typedef SE2GroupBase<SE2Group<_Scalar,_Options> > Base;569,17553
+  typedef typename internal::traits<internal::traits573,17648
+  ::Scalar Scalar;574,17713
+  typedef typename internal::traits<internal::traits576,17775
+  ::TranslationType & TranslationReference;577,17840
+  typedef const typename internal::traits<internal::traits578,17884
+  ::TranslationType & ConstTranslationReference;579,17955
+  typedef typename internal::traits<internal::traits581,18039
+  ::SO2Type & SO2Reference;582,18104
+  typedef const typename internal::traits<internal::traits584,18173
+  ::SO2Type & ConstSO2Reference;585,18244
+  static const int DoF 588,18321
+  static const int num_parameters 590,18408
+  static const int N 592,18521
+  typedef typename Base::Transformation Transformation;594,18594
+  typedef typename Base::Point Point;596,18677
+  typedef typename Base::Tangent Tangent;598,18751
+  typedef typename Base::Adjoint Adjoint;600,18837
+  SE2Group(611,19044
+  SE2Group(620,19197
+  SE2Group(628,19425
+  SE2Group(639,19728
+  SE2Group(648,19994
+  SE2Group(659,20245
+  SE2Group(670,20530
+  Scalar* data(686,21021
+  const Scalar* data(697,21255
+  SO2Reference so2(706,21449
+  ConstSO2Reference so2(714,21555
+  TranslationReference translation(722,21687
+  ConstTranslationReference translation(730,21833
+  Sophus::SO2Group<Scalar> so2_;735,21924
+  Matrix<Matrix736,21957
+  Matrix<Scalar,2,1> translation_;736,21957
+namespace Eigen 743,22018
+template<typename _Scalar,750,22188
+class Map<Map751,22229
+  typedef Sophus::SE2GroupBase<Map<Map754,22355
+  typedef Sophus::SE2GroupBase<Map<Sophus::SE2Group<_Scalar>, _Options> > Base;754,22355
+  typedef typename internal::traits<Map>::Scalar Scalar;758,22472
+  TranslationReference;761,22632
+  ConstTranslationReference;764,22765
+  typedef typename internal::traits<Map>::SO2Type & SO2Reference;766,22829
+  typedef const typename internal::traits<Map>::SO2Type & ConstSO2Reference;768,22936
+  typedef typename Base::Transformation Transformation;777,23330
+  typedef typename Base::Point Point;779,23413
+  typedef typename Base::Tangent Tangent;781,23487
+  typedef typename Base::Adjoint Adjoint;783,23573
+  using Base::operator*;Base::operator*;787,23689
+  SO2Reference so2(799,23915
+  ConstSO2Reference so2(807,24022
+  TranslationReference translation(815,24154
+  ConstTranslationReference translation(823,24300
+  Map<Map828,24391
+  Map<Sophus::SO2Group<Scalar>,_Options> so2_;828,24391
+  Map<Map829,24438
+  Map<Matrix<Scalar,2,1>,_Options> translation_;829,24438
+template<typename _Scalar,838,24649
+class Map<Map839,24690
+  typedef Sophus::SE2GroupBase<Map<Map842,24833
+  Base;843,24913
+  typedef typename internal::traits<Map>::Scalar Scalar;847,24958
+  ConstTranslationReference;850,25124
+  typedef const typename internal::traits<Map>::SO2Type & ConstSO2Reference;852,25194
+  static const int DoF 855,25315
+  static const int num_parameters 857,25402
+  static const int N 859,25515
+  typedef typename Base::Transformation Transformation;861,25588
+  typedef typename Base::Point Point;863,25671
+  typedef typename Base::Tangent Tangent;865,25745
+  typedef typename Base::Adjoint Adjoint;867,25831
+  using Base::operator*;Base::operator*;871,25947
+  Map(880,26140
+  ConstSO2Reference so2(888,26319
+  ConstTranslationReference translation(896,26452
+  const Map<Map901,26543
+  const Map<const Sophus::SO2Group<Scalar>,_Options> so2_;901,26543
+  const Map<Map902,26602
+  const Map<const Matrix<Scalar,2,1>,_Options> translation_;902,26602
+
+thirdparty/Sophus/sophus/so2.hpp,5075
+#define SOPHUS_SO2_HPP24,1173
+namespace Sophus 34,1430
+template<typename _Scalar,35,1449
+template<typename _Scalar, int _Options=35,1449
+typedef SO2Group<double> SO2 EIGEN_DEPRECATED;36,1508
+typedef SO2Group<double> SO2d;37,1555
+typedef SO2Group<float> SO2f;38,1615
+namespace Eigen 49,2114
+namespace internal 50,2132
+template<typename _Scalar,52,2154
+struct traits<traits53,2195
+  typedef _Scalar Scalar;54,2248
+  typedef Matrix<Scalar,Scalar55,2274
+  typedef Matrix<Scalar,2,1> ComplexType;55,2274
+template<typename _Scalar,58,2320
+struct traits<traits59,2361
+  typedef _Scalar Scalar;61,2471
+  typedef Map<Matrix<Matrix62,2497
+  typedef Map<Matrix<Scalar,2,1>,_Options> ComplexType;62,2497
+template<typename _Scalar,65,2557
+struct traits<traits66,2598
+  typedef _Scalar Scalar;68,2720
+  typedef Map<const Matrix<Matrix69,2746
+  typedef Map<const Matrix<Scalar,2,1>,_Options> ComplexType;69,2746
+namespace Sophus 75,2817
+class SO2GroupBase 84,3013
+  typedef typename internal::traits<Derived>::Scalar Scalar;87,3070
+  ComplexReference;90,3237
+  ConstComplexReference;93,3375
+  typedef Matrix<Scalar,Scalar104,3773
+  typedef Matrix<Scalar,N,104,3773
+  typedef Matrix<Scalar,N,N> Transformation;104,3773
+  typedef Matrix<Scalar,Scalar106,3845
+  typedef Matrix<Scalar,2,1> Point;106,3845
+  typedef Scalar Tangent;108,3917
+  typedef Scalar Adjoint;110,3987
+  const Adjoint Adj(123,4376
+  inline SO2Group<NewScalarType> cast(131,4527
+  inline Scalar* data(146,5039
+  inline const Scalar* data(155,5205
+  void fastMultiply(168,5530
+  const SO2Group<Scalar> inverse(182,6021
+  const Scalar log(194,6289
+  void normalize(205,6580
+  const Transformation matrix(223,7146
+  SO2GroupBase<Derived>& operator=(operator=236,7447
+  const SO2Group<Scalar> operator*(246,7678
+  const Point operator*(262,8186
+  void operator*=(operator*=275,8511
+  void setComplex(289,8833
+  ConstComplexReference unit_complex(300,9088
+  const SO2Group<Scalar> exp(322,9824
+  const Transformation generator(339,10245
+  const Transformation hat(358,10777
+  const Tangent lieBracket(380,11384
+  const Tangent log(401,12032
+  const Tangent vee(418,12555
+  ComplexReference unit_complex_nonconst(426,12814
+template<typename _Scalar,435,13016
+class SO2Group 436,13057
+  typedef SO2GroupBase<SO2Group<SO2Group437,13125
+  typedef SO2GroupBase<SO2Group<_Scalar,_Options> > Base;437,13125
+  typedef typename internal::traits<internal::traits440,13219
+  ::Scalar Scalar;441,13284
+  typedef typename internal::traits<internal::traits443,13349
+  ::ComplexType & ComplexReference;444,13414
+  typedef const typename internal::traits<internal::traits446,13502
+  ::ComplexType & ConstComplexReference;447,13573
+  static const int DoF 450,13658
+  static const int num_parameters 452,13745
+  static const int N 454,13858
+  typedef typename Base::Transformation Transformation;456,13931
+  typedef typename Base::Point Point;458,14014
+  typedef typename Base::Tangent Tangent;460,14088
+  typedef typename Base::Adjoint Adjoint;462,14174
+  inline SO2Group(474,14484
+  SO2Group(482,14661
+  SO2Group(492,14913
+  inline SO2Group(506,15358
+  SO2Group(517,15587
+  SO2Group(528,15812
+  SO2Group(537,16011
+  ConstComplexReference unit_complex(548,16290
+  ComplexReference unit_complex_nonconst(556,16511
+  static bool isNearZero(560,16587
+  Matrix<Matrix564,16734
+  Matrix<Scalar,2,1> unit_complex_;564,16734
+namespace Eigen 570,16795
+template<typename _Scalar,577,16972
+class Map<Map578,17013
+  typedef Sophus::SO2GroupBase<Map<Map580,17139
+  typedef Sophus::SO2GroupBase<Map<Sophus::SO2Group<_Scalar>, _Options> > Base;580,17139
+  typedef typename internal::traits<Map>::Scalar Scalar;584,17256
+  typedef typename internal::traits<Map>::ComplexType & ComplexReference;586,17359
+  ConstComplexReference;589,17547
+  typedef typename Base::Transformation Transformation;598,17889
+  typedef typename Base::Point Point;600,17972
+  typedef typename Base::Tangent Tangent;602,18046
+  typedef typename Base::Adjoint Adjoint;604,18132
+  using Base::operator*;Base::operator*;611,18400
+  ConstComplexReference unit_complex(624,18673
+  ComplexReference unit_complex_nonconst(632,18893
+  Map<Map636,18969
+  Map<Matrix<Scalar,2,1>,_Options> unit_complex_;636,18969
+template<typename _Scalar,645,19188
+class Map<Map646,19229
+  typedef Sophus::SO2GroupBase<Map<Map649,19372
+  Base;650,19452
+  typedef typename internal::traits<Map>::Scalar Scalar;654,19497
+  ConstComplexReference;657,19668
+  static const int DoF 661,19738
+  static const int num_parameters 663,19825
+  static const int N 665,19938
+  typedef typename Base::Transformation Transformation;667,20011
+  typedef typename Base::Point Point;669,20094
+  typedef typename Base::Tangent Tangent;671,20168
+  typedef typename Base::Adjoint Adjoint;673,20254
+  using Base::operator*;Base::operator*;677,20370
+  ConstComplexReference unit_complex(690,20649
+  const Map<Map695,20738
+  const Map<const Matrix<Scalar,2,1>,_Options> unit_complex_;695,20738
+
+thirdparty/Sophus/sophus/test_sim3.cpp,279
+void tests(35,1346
+  typedef Sim3Group<Scalar> Sim3Type;37,1362
+  typedef RxSO3Group<Scalar> RxSO3Type;38,1400
+  typedef typename Sim3Group<Sim3Group39,1440
+  typedef typename Sim3Group<Sim3Group40,1491
+  typedef Matrix<Scalar,4,1> Vector4Type;41,1546
+int main(100,3954
+
+thirdparty/Sophus/sophus/test_so2.cpp,174
+void tests(34,1300
+  typedef SO2Group<Scalar> SO2Type;36,1316
+  typedef typename SO2Group<SO2Group37,1352
+  typedef typename SO2Group<SO2Group38,1402
+int main(82,2623
+
+thirdparty/Sophus/sophus/test_se3.cpp,218
+void tests(33,1299
+  typedef SO3Group<Scalar> SO3Type;35,1315
+  typedef SE3Group<Scalar> SE3Type;36,1351
+  typedef typename SE3Group<SE3Group37,1387
+  typedef typename SE3Group<SE3Group38,1437
+int main(96,3632
+
+thirdparty/Sophus/sophus/sim3.hpp,7117
+#define SOPHUS_SIM3_HPP24,1174
+namespace Sophus 32,1411
+template<typename _Scalar,33,1430
+template<typename _Scalar, int _Options=33,1430
+typedef Sim3Group<double> Sim3 EIGEN_DEPRECATED;34,1490
+typedef Sim3Group<double> Sim3d;35,1539
+typedef Sim3Group<float> Sim3f;36,1602
+typedef Matrix<double,double37,1665
+typedef Matrix<double,7,1> Vector7d;37,1665
+typedef Matrix<double,double38,1702
+typedef Matrix<double,7,7> Matrix7d;38,1702
+typedef Matrix<float,float39,1739
+typedef Matrix<float,7,1> Vector7f;39,1739
+typedef Matrix<float,float40,1775
+typedef Matrix<float,7,7> Matrix7f;40,1775
+namespace Eigen 47,2032
+namespace internal 48,2050
+template<typename _Scalar,50,2072
+struct traits<traits51,2113
+  typedef _Scalar Scalar;52,2167
+  typedef Matrix<Scalar,Scalar53,2193
+  typedef Matrix<Scalar,3,1> TranslationType;53,2193
+  typedef Sophus::RxSO3Group<Scalar> RxSO3Type;54,2239
+template<typename _Scalar,57,2291
+struct traits<traits58,2332
+  typedef _Scalar Scalar;60,2444
+  typedef Map<Matrix<Matrix61,2470
+  typedef Map<Matrix<Scalar,3,1>,_Options> TranslationType;61,2470
+  typedef Map<Sophus::RxSO3Group<Sophus::RxSO3Group62,2530
+  typedef Map<Sophus::RxSO3Group<Scalar>,_Options> RxSO3Type;62,2530
+template<typename _Scalar,65,2596
+struct traits<traits66,2637
+  typedef _Scalar Scalar;68,2761
+  typedef Map<const Matrix<Matrix69,2787
+  typedef Map<const Matrix<Scalar,3,1>,_Options> TranslationType;69,2787
+  typedef Map<const Sophus::RxSO3Group<Sophus::RxSO3Group70,2853
+  typedef Map<const Sophus::RxSO3Group<Scalar>,_Options> RxSO3Type;70,2853
+namespace Sophus 76,2930
+class Sim3GroupBase 86,3149
+  typedef typename internal::traits<Derived>::Scalar Scalar;89,3207
+  TranslationReference;92,3375
+  ConstTranslationReference;95,3518
+  RxSO3Reference;98,3642
+  ConstRxSO3Reference;101,3767
+  typedef Matrix<Scalar,Scalar113,4219
+  typedef Matrix<Scalar,N,113,4219
+  typedef Matrix<Scalar,N,N> Transformation;113,4219
+  typedef Matrix<Scalar,Scalar115,4291
+  typedef Matrix<Scalar,3,1> Point;115,4291
+  typedef Matrix<Scalar,Scalar117,4363
+  typedef Matrix<Scalar,DoF,117,4363
+  typedef Matrix<Scalar,DoF,1> Tangent;117,4363
+  typedef Matrix<Scalar,Scalar119,4447
+  typedef Matrix<Scalar,DoF,119,4447
+  typedef Matrix<Scalar,DoF,DoF> Adjoint;119,4447
+  const Adjoint Adj(130,4812
+  inline Sim3Group<NewScalarType> cast(146,5250
+  void fastMultiply(160,5600
+  const Sim3Group<Scalar> inverse(169,5804
+  const Tangent log(184,6221
+  const Transformation matrix(192,6352
+  const Matrix<Matrix206,6745
+  const Matrix<Scalar,3,4> matrix3x4(206,6745
+  Sim3GroupBase<Derived>& operator=operator=217,7013
+  const Sim3Group<Scalar> operator*(229,7267
+  const Point operator*(247,7876
+  void operator*=(operator*=257,8058
+  quaternion(267,8323
+  quaternion(276,8508
+  EIGEN_DEPRECATED const Transformation rotation_matrix(286,8672
+  const Matrix<Matrix294,8831
+  const Matrix<Scalar,3,3> rotationMatrix(294,8831
+  RxSO3Reference rxso3(302,8994
+  ConstRxSO3Reference rxso3(310,9145
+  const Scalar scale(318,9297
+  void setRotationMatrix329,9582
+  void setScale(338,9740
+  void setScaledRotationMatrix350,10057
+  TranslationReference translation(359,10246
+  ConstTranslationReference translation(367,10422
+  const Adjoint d_lieBracketab_by_d_a(385,11049
+  const Sim3Group<Scalar> exp(418,12211
+  const Transformation generator(483,14879
+  const Transformation hat(508,15585
+  const Tangent lieBracket(535,16454
+  const Tangent log(572,17727
+  const Tangent vee(598,18543
+  Matrix<Matrix609,18884
+  Matrix<Scalar,3,3> calcW(609,18884
+template<typename _Scalar,652,20399
+class Sim3Group 653,20440
+  typedef Sim3GroupBase<Sim3Group<Sim3Group654,20511
+  typedef Sim3GroupBase<Sim3Group<_Scalar,_Options> > Base;654,20511
+  typedef typename internal::traits<internal::traits657,20607
+  ::Scalar Scalar;658,20673
+  typedef typename internal::traits<internal::traits660,20729
+  ::RxSO3Type & RxSO3Reference;661,20795
+  typedef const typename internal::traits<internal::traits663,20870
+  ::RxSO3Type & ConstRxSO3Reference;664,20942
+  typedef typename internal::traits<internal::traits666,21022
+  ::TranslationType & TranslationReference;667,21088
+  typedef const typename internal::traits<internal::traits669,21181
+  ::TranslationType & ConstTranslationReference;670,21253
+  static const int DoF 673,21346
+  static const int num_parameters 675,21433
+  static const int N 677,21546
+  typedef typename Base::Transformation Transformation;679,21619
+  typedef typename Base::Point Point;681,21702
+  typedef typename Base::Tangent Tangent;683,21776
+  typedef typename Base::Adjoint Adjoint;685,21862
+  Sim3Group(696,22072
+  Sim3Group(705,22226
+  Sim3Group(713,22462
+  Sim3Group(724,22738
+  Sim3Group(736,23066
+  Scalar* data(751,23554
+  const Scalar* data(762,23792
+  RxSO3Reference rxso3(771,23992
+  ConstRxSO3Reference rxso3(779,24106
+  TranslationReference translation(787,24244
+  ConstTranslationReference translation(795,24390
+  Sophus::RxSO3Group<Scalar> rxso3_;800,24481
+  Matrix<Matrix801,24518
+  Matrix<Scalar,3,1> translation_;801,24518
+namespace Eigen 808,24579
+template<typename _Scalar,815,24754
+class Map<Map816,24795
+  typedef Sophus::Sim3GroupBase<Map<Map818,24924
+  Base;819,25000
+  typedef typename internal::traits<Map>::Scalar Scalar;823,25045
+  TranslationReference;826,25205
+  ConstTranslationReference;829,25344
+  RxSO3Reference;832,25464
+  ConstRxSO3Reference;835,25585
+  typedef typename Base::Transformation Transformation;845,25926
+  typedef typename Base::Point Point;847,26009
+  typedef typename Base::Tangent Tangent;849,26083
+  typedef typename Base::Adjoint Adjoint;851,26169
+  using Base::operator*;Base::operator*;855,26285
+  RxSO3Reference rxso3(867,26517
+  ConstRxSO3Reference rxso3(875,26632
+  TranslationReference translation(883,26770
+  ConstTranslationReference translation(891,26916
+  Map<Map896,27007
+  Map<Sophus::RxSO3Group<Scalar>,_Options> rxso3_;896,27007
+  Map<Map897,27058
+  Map<Matrix<Scalar,3,1>,_Options> translation_;897,27058
+template<typename _Scalar,906,27274
+class Map<Map907,27315
+  Map<Map911,27494
+  Map<const Sophus::Sim3Group<_Scalar>, _Options> > Base;911,27494
+  typedef typename internal::traits<Map>::Scalar Scalar;915,27589
+  ConstTranslationReference;918,27745
+  ConstRxSO3Reference;921,27877
+  static const int DoF 924,27944
+  static const int num_parameters 926,28031
+  static const int N 928,28144
+  typedef typename Base::Transformation Transformation;930,28217
+  typedef typename Base::Point Point;932,28300
+  typedef typename Base::Tangent Tangent;934,28374
+  typedef typename Base::Adjoint Adjoint;936,28460
+  using Base::operator*;Base::operator*;940,28576
+  Map(949,28773
+  ConstRxSO3Reference rxso3(957,28956
+  ConstTranslationReference translation(965,29095
+  const Map<Map970,29186
+  const Map<const Sophus::RxSO3Group<Scalar>,_Options> rxso3_;970,29186
+  const Map<Map971,29249
+  const Map<const Matrix<Scalar,3,1>,_Options> translation_;971,29249
+
+thirdparty/Sophus/sophus/sophus.hpp,349
+#define SOPHUS_HPP24,1164
+namespace std 31,1295
+  using ::log1p;log1p32,1311
+namespace Sophus 39,1388
+struct SophusConstants 43,1457
+  const Scalar epsilon(45,1511
+  const Scalar pi(50,1611
+struct SophusConstants<SophusConstants56,1690
+  float epsilon(58,1751
+  float pi(63,1842
+class SophusException 68,1902
+  SophusException 70,1962
+
+thirdparty/Sophus/sophus/se3.hpp,7039
+#define SOPHUS_SE3_HPP25,1213
+namespace Sophus 33,1447
+template<typename _Scalar,34,1466
+template<typename _Scalar, int _Options=34,1466
+typedef SE3Group<double> SE3 EIGEN_DEPRECATED;35,1525
+typedef SE3Group<double> SE3d;36,1572
+typedef SE3Group<float> SE3f;37,1632
+typedef Matrix<double,double38,1692
+typedef Matrix<double,6,1> Vector6d;38,1692
+typedef Matrix<double,double39,1729
+typedef Matrix<double,6,6> Matrix6d;39,1729
+typedef Matrix<float,float40,1766
+typedef Matrix<float,6,1> Vector6f;40,1766
+typedef Matrix<float,float41,1802
+typedef Matrix<float,6,6> Matrix6f;41,1802
+namespace Eigen 48,2059
+namespace internal 49,2077
+template<typename _Scalar,51,2099
+struct traits<traits52,2140
+  typedef _Scalar Scalar;53,2193
+  typedef Matrix<Scalar,Scalar54,2219
+  typedef Matrix<Scalar,3,1> TranslationType;54,2219
+  typedef Sophus::SO3Group<Scalar> SO3Type;55,2265
+template<typename _Scalar,58,2313
+struct traits<traits59,2354
+  typedef _Scalar Scalar;61,2464
+  typedef Map<Matrix<Matrix62,2490
+  typedef Map<Matrix<Scalar,3,1>,_Options> TranslationType;62,2490
+  typedef Map<Sophus::SO3Group<Sophus::SO3Group63,2550
+  typedef Map<Sophus::SO3Group<Scalar>,_Options> SO3Type;63,2550
+template<typename _Scalar,66,2612
+struct traits<traits67,2653
+  typedef _Scalar Scalar;69,2775
+  typedef Map<const Matrix<Matrix70,2801
+  typedef Map<const Matrix<Scalar,3,1>,_Options> TranslationType;70,2801
+  typedef Map<const Sophus::SO3Group<Sophus::SO3Group71,2867
+  typedef Map<const Sophus::SO3Group<Scalar>,_Options> SO3Type;71,2867
+namespace Sophus 77,2940
+class SE3GroupBase 87,3157
+  typedef typename internal::traits<Derived>::Scalar Scalar;90,3214
+  TranslationReference;93,3382
+  ConstTranslationReference;96,3525
+  SO3Reference;99,3645
+  ConstSO3Reference;102,3764
+  typedef Matrix<Scalar,Scalar113,4193
+  typedef Matrix<Scalar,N,113,4193
+  typedef Matrix<Scalar,N,N> Transformation;113,4193
+  typedef Matrix<Scalar,Scalar115,4265
+  typedef Matrix<Scalar,3,1> Point;115,4265
+  typedef Matrix<Scalar,Scalar117,4337
+  typedef Matrix<Scalar,DoF,117,4337
+  typedef Matrix<Scalar,DoF,1> Tangent;117,4337
+  typedef Matrix<Scalar,Scalar119,4421
+  typedef Matrix<Scalar,DoF,119,4421
+  typedef Matrix<Scalar,DoF,DoF> Adjoint;119,4421
+  const Adjoint Adj(131,4787
+  inline SE3Group<NewScalarType> cast(145,5185
+  void fastMultiply(160,5647
+  const SE3Group<Scalar> inverse(169,5853
+  const Tangent log(184,6263
+  void normalize(195,6520
+  const Transformation matrix(203,6642
+  const Matrix<Matrix217,7035
+  const Matrix<Scalar,3,4> matrix3x4(217,7035
+  SE3GroupBase<Derived>& operator= operator=228,7303
+  const SE3Group<Scalar> operator*(239,7549
+  const Point operator*(257,8129
+  void operator*=(operator*=268,8334
+  typedef Transformation M3_marcos_dont_like_commas;279,8527
+  EIGEN_DEPRECATED const M3_marcos_dont_like_commas rotation_matrix(281,8589
+  const Matrix<Matrix289,8750
+  const Matrix<Scalar,3,3> rotationMatrix(289,8750
+  SO3Reference so3(298,8902
+  ConstSO3Reference so3(306,9045
+  void setQuaternion(319,9347
+  void setRotationMatrix330,9658
+  TranslationReference translation(339,9875
+  ConstTranslationReference translation(347,10051
+  unit_quaternion(358,10385
+  const Adjoint d_lieBracketab_by_d_a(376,10962
+  const SE3Group<Scalar> exp(407,12059
+  const Transformation generator(477,14727
+  const Transformation hat(502,15432
+  const Tangent lieBracket(529,16294
+  const Tangent log(560,17340
+  const Tangent vee(599,18711
+template<typename _Scalar,611,19086
+class SE3Group 612,19127
+  typedef SE3GroupBase<SE3Group<SE3Group613,19195
+  typedef SE3GroupBase<SE3Group<_Scalar,_Options> > Base;613,19195
+  typedef typename internal::traits<internal::traits616,19289
+  ::Scalar Scalar;617,19354
+  typedef typename internal::traits<internal::traits619,19408
+  ::SO3Type & SO3Reference;620,19473
+  typedef const typename internal::traits<internal::traits622,19542
+  ::SO3Type & ConstSO3Reference;623,19613
+  typedef typename internal::traits<internal::traits625,19689
+  ::TranslationType & TranslationReference;626,19754
+  typedef const typename internal::traits<internal::traits628,19847
+  ::TranslationType & ConstTranslationReference;629,19918
+  static const int DoF 632,20011
+  static const int num_parameters 634,20098
+  static const int N 636,20211
+  typedef typename Base::Transformation Transformation;638,20284
+  typedef typename Base::Point Point;640,20367
+  typedef typename Base::Tangent Tangent;642,20441
+  typedef typename Base::Adjoint Adjoint;644,20527
+  SE3Group(655,20737
+  SE3Group(664,20890
+  SE3Group(672,21118
+  SE3Group(683,21421
+  SE3Group(694,21703
+  SE3Group(705,22001
+  Scalar* data(724,22627
+  const Scalar* data(735,22861
+  SO3Reference so3(744,23055
+  ConstSO3Reference so3(752,23161
+  TranslationReference translation(760,23293
+  ConstTranslationReference translation(768,23439
+  Sophus::SO3Group<Scalar> so3_;773,23530
+  Matrix<Matrix774,23563
+  Matrix<Scalar,3,1> translation_;774,23563
+namespace Eigen 781,23624
+template<typename _Scalar,788,23797
+class Map<Map789,23838
+  typedef Sophus::SE3GroupBase<Map<Map791,23964
+  typedef Sophus::SE3GroupBase<Map<Sophus::SE3Group<_Scalar>, _Options> > Base;791,23964
+  typedef typename internal::traits<Map>::Scalar Scalar;795,24081
+  TranslationReference;798,24241
+  ConstTranslationReference;801,24380
+  SO3Reference;804,24496
+  ConstSO3Reference;807,24611
+  typedef typename Base::Transformation Transformation;816,24949
+  typedef typename Base::Point Point;818,25032
+  typedef typename Base::Tangent Tangent;820,25106
+  typedef typename Base::Adjoint Adjoint;822,25192
+  using Base::operator*;Base::operator*;826,25308
+  SO3Reference so3(838,25534
+  ConstSO3Reference so3(846,25641
+  TranslationReference translation(854,25773
+  ConstTranslationReference translation(862,25919
+  Map<Map867,26010
+  Map<Sophus::SO3Group<Scalar>,_Options> so3_;867,26010
+  Map<Map868,26057
+  Map<Matrix<Scalar,3,1>,_Options> translation_;868,26057
+template<typename _Scalar,877,26271
+class Map<Map878,26312
+  typedef Sophus::SE3GroupBase<Map<Map881,26455
+  Base;882,26535
+  typedef typename internal::traits<Map>::Scalar Scalar;886,26580
+  ConstTranslationReference;889,26752
+  ConstSO3Reference;892,26880
+  static const int DoF 895,26945
+  static const int num_parameters 897,27032
+  static const int N 899,27145
+  typedef typename Base::Transformation Transformation;901,27218
+  typedef typename Base::Point Point;903,27301
+  typedef typename Base::Tangent Tangent;905,27375
+  typedef typename Base::Adjoint Adjoint;907,27461
+  using Base::operator*;Base::operator*;911,27577
+  Map(920,27770
+  ConstSO3Reference so3(928,27949
+  ConstTranslationReference translation(936,28082
+  const Map<Map941,28173
+  const Map<const Sophus::SO3Group<Scalar>,_Options> so3_;941,28173
+  const Map<Map942,28232
+  const Map<const Matrix<Scalar,3,1>,_Options> translation_;942,28232
+
+src/util/IndexThreadReduce.h,677
+class IndexThreadReduce38,1075
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW;42,1110
+	inline IndexThreadReduce(44,1152
+	inline ~IndexThreadReduce(60,1510
+	inline void reduce(76,1735
+	Running stats;139,3043
+	boost::thread workerThreads[workerThreads142,3069
+	bool isDone[isDone143,3112
+	bool gotOne[gotOne144,3139
+	boost::mutex exMutex;146,3167
+	boost::condition_variable todo_signal;147,3190
+	boost::condition_variable done_signal;148,3230
+	int nextIndex;150,3271
+	int maxIndex;151,3287
+	int stepSize;152,3302
+	bool running;154,3318
+	boost::function<void(int,int,Running*,int)> callPerIndex;156,3334
+	void callPerIndexDefault(158,3394
+	void workerLoop(164,3527
+
+src/util/nanoflann.h,5248
+	#define NANOFLANN_VERSION 87,3429
+		   typedef typename std::vector<std::vector201,6238
+	struct IndexDist_Sorter208,6478
+		inline bool operator()(operator()212,6608
+		typedef T ElementType;280,8632
+		typedef _DistanceType DistanceType;281,8657
+		inline DistanceType operator()(operator()287,8808
+		typedef T ElementType;328,10409
+		typedef _DistanceType DistanceType;329,10434
+		inline DistanceType operator()(operator()335,10585
+		typedef T ElementType;377,12200
+		typedef _DistanceType DistanceType;378,12225
+		inline DistanceType operator()(operator()384,12383
+	struct metric_L1 396,12740
+		struct traits 398,12798
+			typedef L1_Adaptor<T,T399,12816
+			typedef L1_Adaptor<T,DataSource> distance_t;399,12816
+	struct metric_L2 403,12947
+		struct traits 405,13005
+			typedef L2_Adaptor<T,T406,13023
+			typedef L2_Adaptor<T,DataSource> distance_t;406,13023
+	struct metric_L2_Simple 410,13161
+		struct traits 412,13226
+			typedef L2_Simple_Adaptor<T,T413,13244
+			typedef L2_Simple_Adaptor<T,DataSource> distance_t;413,13244
+	struct KDTreeSingleIndexAdaptorParams423,13414
+		KDTreeSingleIndexAdaptorParams(425,13456
+		size_t leaf_max_size;429,13558
+	struct SearchParams433,13656
+		SearchParams(436,13796
+		int   checks;439,13936
+		float eps;440,14027
+		bool sorted;441,14097
+	class PooledAllocator482,15362
+		size_t  remaining;490,15688
+		void*   base;491,15766
+		void*   loc;492,15837
+		void internal_init(494,15915
+		size_t  usedMemory;503,16030
+		size_t  wastedMemory;504,16052
+		PooledAllocator(509,16140
+		~PooledAllocator(516,16261
+		void free_all(521,16347
+		void* malloc(535,16658
+		T* allocate(588,18216
+    class CArray 627,19701
+        T elems[elems629,19734
+        typedef T              value_type;633,19842
+        typedef T*             iterator;634,19885
+        typedef const T*       const_iterator;635,19926
+        typedef T&             reference;636,19973
+        typedef const T&       const_reference;637,20015
+        typedef std::size_t    size_type;638,20063
+        typedef std::ptrdiff_t difference_type;639,20105
+        inline iterator begin(642,20182
+        inline const_iterator begin(643,20232
+        inline iterator end(644,20294
+        inline const_iterator end(645,20344
+        typedef std::reverse_iterator<iterator> reverse_iterator;649,20577
+        typedef std::reverse_iterator<const_iterator> const_reverse_iterator;650,20643
+        typedef std::reverse_iterator<std::_Ptrit<std::_Ptrit653,20896
+                                      reference, iterator, reference> > reverse_iterator;654,20985
+        typedef std::reverse_iterator<std::_Ptrit<std::_Ptrit655,21075
+                                      const_reference, iterator, reference> > const_reverse_iterator;656,21170
+        typedef std::reverse_iterator<iterator,iterator659,21344
+        typedef std::reverse_iterator<iterator,T> reverse_iterator;659,21344
+        typedef std::reverse_iterator<const_iterator,const_iterator660,21412
+        typedef std::reverse_iterator<const_iterator,T> const_reverse_iterator;660,21412
+        reverse_iterator rbegin(663,21500
+        const_reverse_iterator rbegin(664,21570
+        reverse_iterator rend(665,21658
+        const_reverse_iterator rend(666,21728
+        reference at(671,22023
+        const_reference at(672,22093
+        reference front(674,22205
+        const_reference front(675,22252
+        reference back(676,22311
+        const_reference back(677,22359
+        static inline size_type size(679,22447
+        static bool empty(680,22500
+        static size_type max_size(681,22546
+        enum { static_size 682,22596
+		inline void resize(684,22741
+        void swap 686,22952
+        const T* data(688,23079
+        T* data(690,23194
+        template <typename T2> CArray<CArray692,23273
+        template <typename T2> CArray<T,N>& operator= operator=692,23273
+        inline void assign 697,23490
+        void assign 699,23652
+        static void rangecheck 702,23840
+	struct array_or_vector_selector709,24167
+		typedef CArray<T,T711,24203
+		typedef CArray<T,DIM> container_t;711,24203
+		typedef std::vector<T> container_t;716,24337
+		typedef typename Distance::ElementType 766,26549
+		typedef typename Distance::DistanceType 767,26604
+		struct Node791,27247
+					IndexType    left,796,27421
+					IndexType    left, right;796,27421
+				} lr;797,27489
+					int          divfeat;799,27512
+					DistanceType divlow,800,27576
+					DistanceType divlow, divhigh;800,27576
+				} sub;801,27649
+			Node* child1,803,27666
+			Node* child1, * child2;803,27666
+		typedef Node* NodePtr;805,27749
+		struct Interval808,27776
+			ElementType low,810,27798
+			ElementType low, high;810,27798
+		typedef typename array_or_vector_selector<array_or_vector_selector814,27922
+		typedef typename array_or_vector_selector<array_or_vector_selector817,28105
+		typedef KDTreeEigenMatrixAdaptor<MatrixType,DIM,Distance> self_t;1324,45477
+		typedef typename MatrixType::Scalar 1325,45545
+		typedef typename MatrixType::Index 1326,45603
+		typedef typename Distance::template 1327,45651
+		typedef KDTreeSingleIndexAdaptor< metric_t,self_t,DIM,IndexType>  index_t;1328,45732
+
+src/util/FrameShell.h,445
+class FrameShell34,1000
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;37,1027
+	int id;38,1061
+	int incoming_id;39,1107
+	double timestamp;40,1147
+	SE3 camToTrackingRef;43,1226
+	FrameShell* trackingRef;44,1249
+	SE3 camToWorld;47,1300
+	AffLight aff_g2l;48,1412
+	bool poseValid;49,1431
+	int statistics_outlierResOnThis;52,1464
+	int statistics_goodResOnThis;53,1498
+	int marginalizedAt;54,1529
+	double movedByOpt;55,1550
+	inline FrameShell(58,1572
+
+src/util/NumType.h,4608
+#define SSEE(38,1053
+#define MAX_RES_PER_POINT 41,1101
+#define NUM_THREADS 42,1129
+#define todouble(45,1153
+typedef Sophus::SE3d SE3;48,1194
+typedef Sophus::Sim3d Sim3;49,1220
+typedef Sophus::SO3d SO3;50,1248
+#define CPARS 54,1277
+typedef Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> MatXX;57,1295
+typedef Eigen::Matrix<double,CPARS,CPARS> MatCC;58,1362
+#define MatToDynamic(59,1411
+typedef Eigen::Matrix<double,CPARS,10> MatC10;63,1447
+typedef Eigen::Matrix<double,10,10> Mat1010;64,1494
+typedef Eigen::Matrix<double,13,13> Mat1313;65,1539
+typedef Eigen::Matrix<double,8,10> Mat810;67,1585
+typedef Eigen::Matrix<double,8,3> Mat83;68,1628
+typedef Eigen::Matrix<double,6,6> Mat66;69,1669
+typedef Eigen::Matrix<double,5,3> Mat53;70,1710
+typedef Eigen::Matrix<double,4,3> Mat43;71,1751
+typedef Eigen::Matrix<double,4,2> Mat42;72,1792
+typedef Eigen::Matrix<double,3,3> Mat33;73,1833
+typedef Eigen::Matrix<double,2,2> Mat22;74,1874
+typedef Eigen::Matrix<double,8,CPARS> Mat8C;75,1915
+typedef Eigen::Matrix<double,CPARS,8> MatC8;76,1960
+typedef Eigen::Matrix<float,8,CPARS> Mat8Cf;77,2005
+typedef Eigen::Matrix<float,CPARS,8> MatC8f;78,2050
+typedef Eigen::Matrix<double,8,8> Mat88;80,2096
+typedef Eigen::Matrix<double,7,7> Mat77;81,2137
+typedef Eigen::Matrix<double,CPARS,1> VecC;83,2179
+typedef Eigen::Matrix<float,CPARS,1> VecCf;84,2223
+typedef Eigen::Matrix<double,13,1> Vec13;85,2267
+typedef Eigen::Matrix<double,10,1> Vec10;86,2309
+typedef Eigen::Matrix<double,9,1> Vec9;87,2351
+typedef Eigen::Matrix<double,8,1> Vec8;88,2391
+typedef Eigen::Matrix<double,7,1> Vec7;89,2431
+typedef Eigen::Matrix<double,6,1> Vec6;90,2471
+typedef Eigen::Matrix<double,5,1> Vec5;91,2511
+typedef Eigen::Matrix<double,4,1> Vec4;92,2551
+typedef Eigen::Matrix<double,3,1> Vec3;93,2591
+typedef Eigen::Matrix<double,2,1> Vec2;94,2631
+typedef Eigen::Matrix<double,Eigen::Dynamic,1> VecX;95,2671
+typedef Eigen::Matrix<float,3,3> Mat33f;97,2725
+typedef Eigen::Matrix<float,10,3> Mat103f;98,2766
+typedef Eigen::Matrix<float,2,2> Mat22f;99,2809
+typedef Eigen::Matrix<float,3,1> Vec3f;100,2850
+typedef Eigen::Matrix<float,2,1> Vec2f;101,2890
+typedef Eigen::Matrix<float,6,1> Vec6f;102,2930
+typedef Eigen::Matrix<double,4,9> Mat49;106,2973
+typedef Eigen::Matrix<double,8,9> Mat89;107,3014
+typedef Eigen::Matrix<double,9,4> Mat94;109,3056
+typedef Eigen::Matrix<double,9,8> Mat98;110,3097
+typedef Eigen::Matrix<double,8,1> Mat81;112,3139
+typedef Eigen::Matrix<double,1,8> Mat18;113,3180
+typedef Eigen::Matrix<double,9,1> Mat91;114,3221
+typedef Eigen::Matrix<double,1,9> Mat19;115,3262
+typedef Eigen::Matrix<double,8,4> Mat84;118,3305
+typedef Eigen::Matrix<double,4,8> Mat48;119,3346
+typedef Eigen::Matrix<double,4,4> Mat44;120,3387
+typedef Eigen::Matrix<float,MAX_RES_PER_POINT,1> VecNRf;123,3430
+typedef Eigen::Matrix<float,12,1> Vec12f;124,3487
+typedef Eigen::Matrix<float,1,8> Mat18f;125,3529
+typedef Eigen::Matrix<float,6,6> Mat66f;126,3570
+typedef Eigen::Matrix<float,8,8> Mat88f;127,3611
+typedef Eigen::Matrix<float,8,4> Mat84f;128,3652
+typedef Eigen::Matrix<float,8,1> Vec8f;129,3693
+typedef Eigen::Matrix<float,10,1> Vec10f;130,3733
+typedef Eigen::Matrix<float,6,6> Mat66f;131,3775
+typedef Eigen::Matrix<float,4,1> Vec4f;132,3816
+typedef Eigen::Matrix<float,4,4> Mat44f;133,3856
+typedef Eigen::Matrix<float,12,12> Mat1212f;134,3897
+typedef Eigen::Matrix<float,12,1> Vec12f;135,3942
+typedef Eigen::Matrix<float,13,13> Mat1313f;136,3984
+typedef Eigen::Matrix<float,10,10> Mat1010f;137,4029
+typedef Eigen::Matrix<float,13,1> Vec13f;138,4074
+typedef Eigen::Matrix<float,9,9> Mat99f;139,4116
+typedef Eigen::Matrix<float,9,1> Vec9f;140,4157
+typedef Eigen::Matrix<float,4,2> Mat42f;142,4198
+typedef Eigen::Matrix<float,6,2> Mat62f;143,4239
+typedef Eigen::Matrix<float,1,2> Mat12f;144,4280
+typedef Eigen::Matrix<float,Eigen::Dynamic,1> VecXf;146,4322
+typedef Eigen::Matrix<float,Eigen::Dynamic,Eigen::Dynamic> MatXXf;147,4375
+typedef Eigen::Matrix<double,8+CPARS+1,8+CPARS+1> MatPCPC;150,4444
+typedef Eigen::Matrix<float,8+CPARS+1,8+CPARS+1> MatPCPCf;151,4503
+typedef Eigen::Matrix<double,8+CPARS+1,1> VecPC;152,4562
+typedef Eigen::Matrix<float,8+CPARS+1,1> VecPCf;153,4611
+typedef Eigen::Matrix<float,14,14> Mat1414f;155,4661
+typedef Eigen::Matrix<float,14,1> Vec14f;156,4706
+typedef Eigen::Matrix<double,14,14> Mat1414;157,4748
+typedef Eigen::Matrix<double,14,1> Vec14;158,4793
+struct AffLight166,4889
+	AffLight(168,4907
+	AffLight(169,4958
+	double a,172,5011
+	double a,b;172,5011
+	static Vec2 fromToVecExposure(174,5096
+	Vec2 vec(188,5500
+
+src/util/settings.cpp,3792
+namespace dso30,976
+int pyrLevelsUsed 32,992
+float setting_keyframesPerSecond 36,1075
+bool setting_realTimeMaxKF 37,1165
+float setting_maxShiftWeightT=38,1301
+float setting_maxShiftWeightR=39,1351
+float setting_maxShiftWeightRT=40,1400
+float setting_kfGlobalWeight 41,1451
+float setting_maxAffineWeight=42,1593
+float setting_idepthFixPrior 47,1730
+float setting_idepthFixPriorMargFac 48,1768
+float setting_initialRotPrior 49,1815
+float setting_initialTransPrior 50,1853
+float setting_initialAffBPrior 51,1893
+float setting_initialAffAPrior 52,1932
+float setting_initialCalibHessian 53,1971
+int setting_solverMode 60,2124
+double setting_solverModeDelta 61,2199
+bool setting_forceAceptStep 62,2241
+float setting_minIdepthH_act 67,2343
+float setting_minIdepthH_marg 68,2379
+float setting_desiredImmatureDensity 72,2418
+float setting_desiredPointDensity 73,2492
+float setting_minPointsRemaining 74,2578
+float setting_maxLogAffFacInWindow 75,2667
+int   setting_minFrames 78,2799
+int   setting_maxFrames 79,2853
+int   setting_minFrameAge 80,2907
+int   setting_maxOptIterations=81,2938
+int   setting_minOptIterations=82,2994
+float setting_thOptIterations=83,3050
+float setting_outlierTH 90,3207
+float setting_outlierTHSumComponent 91,3269
+int setting_pattern 96,3374
+float setting_margWeightFac 97,3437
+float setting_reTrackThreshold 101,3607
+int   setting_minGoodActiveResForMarg=106,3757
+int   setting_minGoodResForMarg=107,3798
+int setting_photometricCalibration 117,3922
+bool setting_useExposure 118,3962
+float setting_affineOptModeA 119,3995
+float setting_affineOptModeB 120,4079
+int setting_gammaWeightsPixelSelect 122,4163
+float setting_huberTH 127,4294
+float setting_frameEnergyTHConstWeight 134,4410
+float setting_frameEnergyTHN 135,4456
+float setting_frameEnergyTHFacMedian 136,4493
+float setting_overallEnergyTHWeight 137,4537
+float setting_coarseCutoffTH 138,4578
+float setting_minGradHistCut 145,4660
+float setting_minGradHistAdd 146,4696
+float setting_gradDownweightPerLevel 147,4730
+bool  setting_selectDirectionDistribution 148,4775
+float setting_maxPixSearch 156,4889
+float setting_minTraceQuality 157,5034
+int setting_minTraceTestRadius 158,5069
+int setting_GNItsOnPointActivation 159,5105
+float setting_trace_stepsize 160,5145
+int setting_trace_GNIterations 161,5225
+float setting_trace_GNThreshold 162,5287
+float setting_trace_extraSlackOnTH 163,5361
+float setting_trace_slackInterval 164,5481
+float setting_trace_minImprovementFactor 165,5580
+float benchmarkSetting_fxfyfac 171,5739
+int benchmarkSetting_width 172,5775
+int benchmarkSetting_height 173,5807
+float benchmark_varNoise 174,5840
+float benchmark_varBlurNoise 175,5870
+float benchmark_initializerSlackFactor 176,5904
+int benchmark_noiseGridsize 177,5948
+float freeDebugParam1 180,5983
+float freeDebugParam2 181,6010
+float freeDebugParam3 182,6037
+float freeDebugParam4 183,6064
+float freeDebugParam5 184,6091
+bool disableReconfigure=188,6121
+bool debugSaveImages 189,6152
+bool multiThreading 190,6182
+bool disableAllDisplay 191,6210
+bool setting_onlyLogKFPoses 192,6242
+bool setting_logStuff 193,6278
+bool goStepByStep 197,6311
+bool setting_render_displayCoarseTrackingFull=200,6340
+bool setting_render_renderWindowFrames=201,6393
+bool setting_render_plotTrackingFull 202,6438
+bool setting_render_display3D 203,6484
+bool setting_render_displayResidual 204,6522
+bool setting_render_displayVideo 205,6566
+bool setting_render_displayDepth 206,6607
+bool setting_fullResetRequested 208,6649
+bool setting_debugout_runquiet 210,6691
+int sparsityFactor 212,6732
+void handleKey(215,6832
+int staticPattern[staticPattern235,7177
+int staticPatternNum[staticPatternNum287,12351
+int staticPatternPadding[staticPatternPadding300,12437
+
+src/util/DatasetReader.h,1272
+using namespace dso;44,1231
+inline int getdir 48,1255
+struct PrepImageItem79,1865
+	int id;81,1888
+	bool isQueud;82,1897
+	ImageAndExposure* pt;83,1912
+	inline PrepImageItem(85,1936
+	inline void release(92,2011
+class ImageFolderReader102,2078
+	ImageFolderReader(105,2112
+	~ImageFolderReader(167,3596
+	Eigen::VectorXf getOriginalCalib(178,3752
+	Eigen::Vector2i getOriginalDimensions(182,3852
+	void getCalibMono(187,3940
+	void setGlobalCalibration(194,4103
+	int getNumImages(202,4248
+	double getTimestamp(207,4298
+	void prepImage(216,4471
+	MinimalImageB* getImageRaw(222,4521
+	ImageAndExposure* getImage(227,4602
+	inline float* getPhotometricGamma(233,4711
+	Undistort* undistort;241,4934
+	MinimalImageB* getImageRaw_internal(245,4968
+	ImageAndExposure* getImage_internal(283,6123
+	inline void loadTimestamps(294,6456
+	std::vector<ImageAndExposure*> preloadedImages;361,7994
+	std::vector<std::string> files;362,8043
+	std::vector<double> timestamps;363,8076
+	std::vector<float> exposures;364,8109
+	int width,366,8141
+	int width, height;366,8141
+	int widthOrg,367,8161
+	int widthOrg, heightOrg;367,8161
+	std::string path;369,8188
+	std::string calibfile;370,8207
+	bool isZipped;372,8232
+	zip_t* ziparchive;375,8264
+	char* databuffer;376,8284
+
+src/util/globalCalib.cpp,489
+namespace dso30,991
+	int wG[wG32,1007
+	int wG[PYR_LEVELS], hG[hG32,1007
+	float fxG[fxG33,1044
+	float fxG[PYR_LEVELS], fyG[fyG33,1044
+		  cxG[cxG34,1085
+		  cxG[PYR_LEVELS], cyG[cyG34,1085
+	float fxiG[fxiG36,1124
+	float fxiG[PYR_LEVELS], fyiG[fyiG36,1124
+		  cxiG[cxiG37,1167
+		  cxiG[PYR_LEVELS], cyiG[cyiG37,1167
+	Eigen::Matrix3f KG[KG39,1208
+	Eigen::Matrix3f KG[PYR_LEVELS], KiG[KiG39,1208
+	float wM3G;42,1260
+	float hM3G;43,1273
+	void setGlobalCalib(45,1287
+
+src/util/Undistort.h,1565
+class PhotometricUndistorter40,1071
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;43,1110
+	PhotometricUndistorter(44,1144
+	~PhotometricUndistorter(45,1254
+	template<typename T> void processFrame(51,1454
+	void unMapFloatImage(52,1545
+	ImageAndExposure* output;54,1583
+	float* getG(56,1611
+    float G[G58,1674
+    int GDepth;59,1696
+	float* vignetteMap;60,1712
+	float* vignetteMapInv;61,1733
+	int w,62,1757
+	int w,h;62,1757
+	bool valid;63,1767
+class Undistort67,1785
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;70,1811
+	inline const Mat33 getK(76,1977
+	inline const Eigen::Vector2i getSize(77,2023
+	inline const VecX getOriginalParameter(78,2101
+	inline const Eigen::Vector2i getOriginalSize(79,2168
+	inline bool isValid(80,2254
+	PhotometricUndistorter* photometricUndist;88,2673
+    int w,91,2729
+    int w, h,91,2729
+    int w, h, wOrg,91,2729
+    int w, h, wOrg, hOrg,91,2729
+    int w, h, wOrg, hOrg, wUp,91,2729
+    int w, h, wOrg, hOrg, wUp, hUp;91,2729
+    int upsampleUndistFactor;92,2765
+	Mat33 K;93,2795
+	VecX parsOrg;94,2805
+	bool valid;95,2820
+	bool passthrough;96,2833
+	float* remapX;98,2853
+	float* remapY;99,2869
+class UndistortFOV 109,3070
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;112,3118
+class UndistortRadTan 120,3330
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;123,3381
+class UndistortEquidistant 130,3604
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;133,3660
+class UndistortPinhole 140,3893
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;143,3945
+	float inputCalibration[inputCalibration149,4169
+class UndistortKB 152,4201
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;155,4248
+
+src/util/Undistort.cpp,1783
+namespace dso40,1177
+PhotometricUndistorter::PhotometricUndistorter(PhotometricUndistorter50,1201
+PhotometricUndistorter::~PhotometricUndistorter(~PhotometricUndistorter180,4137
+void PhotometricUndistorter::unMapFloatImage(unMapFloatImage188,4303
+void PhotometricUndistorter::processFrame(processFrame214,4724
+Undistort::~Undistort(~Undistort260,5748
+Undistort* Undistort::getUndistorterForFile(getUndistorterForFile266,5845
+void Undistort::loadPhotometricCalibration(loadPhotometricCalibration380,8939
+ImageAndExposure* Undistort::undistort(undistort386,9202
+void Undistort::applyBlurNoise(applyBlurNoise487,12113
+void Undistort::makeOptimalK_crop(makeOptimalK_crop588,14275
+void Undistort::makeOptimalK_full(makeOptimalK_full710,17213
+void Undistort::readFromFile(readFromFile716,17279
+UndistortFOV::UndistortFOV(UndistortFOV956,23698
+UndistortFOV::~UndistortFOV(~UndistortFOV965,23931
+void UndistortFOV::distortCoordinates(distortCoordinates969,23966
+UndistortRadTan::UndistortRadTan(UndistortRadTan1012,24680
+UndistortRadTan::~UndistortRadTan(~UndistortRadTan1021,24924
+void UndistortRadTan::distortCoordinates(distortCoordinates1025,24965
+UndistortEquidistant::UndistortEquidistant(UndistortEquidistant1072,26088
+UndistortEquidistant::~UndistortEquidistant(~UndistortEquidistant1081,26352
+void UndistortEquidistant::distortCoordinates(distortCoordinates1085,26403
+UndistortKB::UndistortKB(UndistortKB1131,27536
+UndistortKB::~UndistortKB(~UndistortKB1140,27783
+void UndistortKB::distortCoordinates(distortCoordinates1144,27816
+UndistortPinhole::UndistortPinhole(UndistortPinhole1197,29115
+UndistortPinhole::~UndistortPinhole(~UndistortPinhole1205,29317
+void UndistortPinhole::distortCoordinates(distortCoordinates1209,29360
+
+src/util/ImageAndExposure.h,335
+class ImageAndExposure34,992
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;37,1025
+	float* image;38,1059
+	int w,39,1109
+	int w,h;39,1109
+	double timestamp;40,1143
+	float exposure_time;41,1162
+	inline ImageAndExposure(42,1208
+	inline ~ImageAndExposure(47,1359
+	inline void copyMetaTo(52,1412
+	inline ImageAndExposure* getDeepCopy(57,1507
+
+src/util/settings.h,577
+#define SOLVER_SVD 35,1008
+#define SOLVER_ORTHOGONALIZE_SYSTEM 36,1034
+#define SOLVER_ORTHOGONALIZE_POINTMARG 37,1077
+#define SOLVER_ORTHOGONALIZE_FULL 38,1123
+#define SOLVER_SVD_CUT7 39,1164
+#define SOLVER_REMOVE_POSEPRIOR 40,1196
+#define SOLVER_USE_GN 41,1236
+#define SOLVER_FIX_LAMBDA 42,1266
+#define SOLVER_ORTHOGONALIZE_X 43,1301
+#define SOLVER_MOMENTUM 44,1341
+#define SOLVER_STEPMOMENTUM 45,1374
+#define SOLVER_ORTHOGONALIZE_X_LATER 46,1412
+#define PYR_LEVELS 50,1538
+#define patternNum 215,5490
+#define patternP 216,5511
+#define patternPadding 217,5545
+
+src/util/globalFuncs.h,1250
+namespace dso32,1043
+EIGEN_ALWAYS_INLINE Eigen::Vector3f getInterpolatedElement43(59,1570
+EIGEN_ALWAYS_INLINE Eigen::Vector3f getInterpolatedElement33(75,2083
+EIGEN_ALWAYS_INLINE Eigen::Vector3f getInterpolatedElement33OverAnd(91,2596
+EIGEN_ALWAYS_INLINE Eigen::Vector3f getInterpolatedElement33OverOr(108,3253
+EIGEN_ALWAYS_INLINE float getInterpolatedElement31(126,3910
+EIGEN_ALWAYS_INLINE Eigen::Vector3f getInterpolatedElement13BiLin(142,4433
+EIGEN_ALWAYS_INLINE Eigen::Vector3f getInterpolatedElement33BiLin(166,5044
+EIGEN_ALWAYS_INLINE float getInterpolatedElement11Cub(189,5694
+EIGEN_ALWAYS_INLINE Eigen::Vector2f getInterpolatedElement12Cub(194,5946
+EIGEN_ALWAYS_INLINE Eigen::Vector2f getInterpolatedElement32Cub(203,6328
+EIGEN_ALWAYS_INLINE float getInterpolatedElement11BiCub(213,6754
+EIGEN_ALWAYS_INLINE Eigen::Vector3f getInterpolatedElement13BiCub(229,7273
+EIGEN_ALWAYS_INLINE Eigen::Vector3f getInterpolatedElement33BiCub(256,8024
+EIGEN_ALWAYS_INLINE Eigen::Vector4f getInterpolatedElement44(283,8795
+EIGEN_ALWAYS_INLINE Eigen::Vector2f getInterpolatedElement42(299,9212
+inline Vec3f makeRainbowf3F(317,9727
+inline Vec3b makeRainbow3B(334,10082
+inline Vec3b makeJet3B(350,10459
+inline Vec3b makeRedGreen3B(369,11227
+
+src/util/MinimalImage.h,856
+class MinimalImage34,1020
+	int w;38,1082
+	int h;39,1090
+	T* data;40,1098
+	inline MinimalImage(45,1160
+	inline MinimalImage(54,1323
+	inline ~MinimalImage(60,1425
+	inline MinimalImage* getClone(65,1486
+	inline T& at(73,1634
+	inline T& at(74,1696
+	inline void setBlack(76,1736
+	inline void setConst(81,1801
+	inline void setPixel1(86,1877
+	inline void setPixel4(91,1973
+	inline void setPixel9(99,2130
+	inline void setPixelCirc(112,2372
+	bool ownData;156,2686
+typedef Eigen::Matrix<unsigned char,159,2705
+typedef Eigen::Matrix<unsigned char,3,1> Vec3b;159,2705
+typedef MinimalImage<float> MinimalImageF;160,2753
+typedef MinimalImage<Vec3f> MinimalImageF3;161,2796
+typedef MinimalImage<unsigned char> MinimalImageB;162,2840
+typedef MinimalImage<Vec3b> MinimalImageB3;163,2891
+typedef MinimalImage<unsigned short> MinimalImageB16;164,2935
+
+src/FullSystem/Residuals.h,1016
+enum ResLocation 46,1232
+enum ResLocation {ACTIVE=ACTIVE46,1232
+enum ResLocation {ACTIVE=0, LINEARIZED,46,1232
+enum ResLocation {ACTIVE=0, LINEARIZED, MARGINALIZED,46,1232
+enum ResLocation {ACTIVE=0, LINEARIZED, MARGINALIZED, NONE}NONE46,1232
+enum ResState 47,1293
+enum ResState {IN=IN47,1293
+enum ResState {IN=0, OOB,47,1293
+enum ResState {IN=0, OOB, OUTLIER}OUTLIER47,1293
+struct FullJacRowT49,1330
+	Eigen::Vector2f projectedTo[projectedTo51,1351
+class PointFrameResidual54,1404
+	EFResidual* efResidual;59,1476
+	static int instanceCounter;61,1502
+	ResState state_state;64,1533
+	double state_energy;65,1556
+	ResState state_NewState;66,1578
+	double state_NewEnergy;67,1604
+	double state_NewEnergyWithOutlier;68,1629
+	void setState(71,1667
+	PointHessian* point;74,1715
+	FrameHessian* host;75,1737
+	FrameHessian* target;76,1758
+	RawResidualJacobian* J;77,1781
+	bool isNew;80,1808
+	Eigen::Vector2f projectedTo[projectedTo83,1823
+	Vec3f centerProjectedTo;84,1872
+	void resetOOB(92,2076
+
+src/FullSystem/HessianBlocks.h,5447
+#define MAX_ACTIVE_FRAMES 26,933
+namespace dso39,1152
+#define SCALE_IDEPTH 58,1447
+#define SCALE_XI_ROT 59,1510
+#define SCALE_XI_TRANS 60,1536
+#define SCALE_F 61,1564
+#define SCALE_C 62,1586
+#define SCALE_W 63,1608
+#define SCALE_A 64,1629
+#define SCALE_B 65,1651
+#define SCALE_IDEPTH_INVERSE 67,1676
+#define SCALE_XI_ROT_INVERSE 68,1727
+#define SCALE_XI_TRANS_INVERSE 69,1778
+#define SCALE_F_INVERSE 70,1833
+#define SCALE_C_INVERSE 71,1874
+#define SCALE_W_INVERSE 72,1915
+#define SCALE_A_INVERSE 73,1956
+#define SCALE_B_INVERSE 74,1997
+struct FrameFramePrecalc77,2040
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;79,2067
+	static int instanceCounter;81,2119
+	FrameHessian* host;82,2148
+	FrameHessian* target;83,2184
+	Mat33f PRE_RTll;86,2245
+	Mat33f PRE_KRKiTll;87,2263
+	Mat33f PRE_RKiTll;88,2284
+	Mat33f PRE_RTll_0;89,2304
+	Vec2f PRE_aff_mode;91,2325
+	float PRE_b0_mode;92,2346
+	Vec3f PRE_tTll;94,2367
+	Vec3f PRE_KtTll;95,2384
+	Vec3f PRE_tTll_0;96,2402
+	float distanceLL;98,2422
+    inline ~FrameFramePrecalc(101,2443
+    inline FrameFramePrecalc(102,2478
+struct FrameHessian110,2609
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;112,2631
+	EFFrame* efFrame;113,2665
+	FrameShell* shell;117,2753
+	Eigen::Vector3f* dI;119,2774
+	Eigen::Vector3f* dIp[dIp120,2886
+	float* absSquaredGrad[absSquaredGrad121,2980
+	int frameID;128,3080
+	static int instanceCounter;129,3137
+	int idx;130,3166
+	float frameEnergyTH;133,3211
+	float ab_exposure;134,3283
+	bool flaggedForMarginalization;136,3304
+	std::vector<PointHessian*> pointHessians;138,3338
+	std::vector<PointHessian*> pointHessiansMarginalized;139,3415
+	std::vector<PointHessian*> pointHessiansOut;140,3562
+	std::vector<ImmaturePoint*> immaturePoints;141,3656
+	Mat66 nullspaces_pose;144,3751
+	Mat42 nullspaces_affine;145,3775
+	Vec6 nullspaces_scale;146,3801
+	SE3 worldToCam_evalPT;149,3845
+	Vec10 state_zero;150,3869
+	Vec10 state_scaled;151,3888
+	Vec10 state;152,3909
+	Vec10 step;153,3962
+	Vec10 step_backup;154,3975
+	Vec10 state_backup;155,3995
+    EIGEN_STRONG_INLINE const SE3 &get_worldToCam_evalPT(get_worldToCam_evalPT158,4018
+    EIGEN_STRONG_INLINE const Vec10 &get_state_zero(get_state_zero159,4111
+    EIGEN_STRONG_INLINE const Vec10 &get_state(get_state160,4192
+    EIGEN_STRONG_INLINE const Vec10 &get_state_scaled(get_state_scaled161,4263
+    EIGEN_STRONG_INLINE const Vec10 get_state_minus_stateZero(162,4348
+	SE3 PRE_worldToCam;166,4480
+	SE3 PRE_camToWorld;167,4501
+	std::vector<std::vector168,4522
+	std::vector<FrameFramePrecalc,Eigen::aligned_allocator<FrameFramePrecalc>> targetPrecalc;168,4522
+	MinimalImageB3* debugImage;169,4613
+    inline Vec6 w2c_leftEps(172,4644
+    inline AffLight aff_g2l(173,4719
+    inline AffLight aff_g2l_0(174,4820
+	inline void setState(179,4983
+	inline void setStateScaled(194,5495
+	inline void setEvalPT(209,6082
+	inline void setEvalPT_scaled(219,6255
+	inline ~FrameHessian(231,6584
+	inline FrameHessian(246,6809
+	inline Vec10 getPrior(262,7039
+	inline Vec10 getPriorZero(292,7721
+struct CalibHessian299,7785
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;301,7807
+	static int instanceCounter;302,7841
+	VecC value_zero;304,7871
+	VecC value_scaled;305,7889
+	VecCf value_scaledf;306,7909
+	VecCf value_scaledi;307,7931
+	VecC value;308,7953
+	VecC step;309,7966
+	VecC step_backup;310,7978
+	VecC value_backup;311,7997
+	VecC value_minus_value_zero;312,8017
+    inline ~CalibHessian(314,8048
+	inline CalibHessian(315,8096
+    inline float& fxl(335,8537
+    inline float& fyl(336,8588
+    inline float& cxl(337,8639
+    inline float& cyl(338,8690
+    inline float& fxli(339,8741
+    inline float& fyli(340,8793
+    inline float& cxli(341,8845
+    inline float& cyli(342,8897
+	inline void setValue(346,8952
+	inline void setValueScaled(363,9615
+	float Binv[Binv380,10303
+	float B[B381,10321
+	EIGEN_STRONG_INLINE float getBGradOnly(384,10338
+	EIGEN_STRONG_INLINE float getBInvGradOnly(392,10476
+struct PointHessian403,10675
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;405,10697
+	static int instanceCounter;406,10731
+	EFPoint* efPoint;407,10760
+	float color[color410,10798
+	float weights[weights411,10857
+	float u,415,10938
+	float u,v;415,10938
+	int idx;416,10950
+	float energyTH;417,10960
+	FrameHessian* host;418,10977
+	bool hasDepthPrior;419,10998
+	float my_type;421,11020
+	float idepth_scaled;423,11037
+	float idepth_zero_scaled;424,11059
+	float idepth_zero;425,11086
+	float idepth;426,11106
+	float step;427,11121
+	float step_backup;428,11134
+	float idepth_backup;429,11154
+	float nullspaces_scale;431,11177
+	float idepth_hessian;432,11202
+	float maxRelBaseline;433,11225
+	int numGoodResiduals;434,11248
+	enum PtStatus 436,11272
+	enum PtStatus {ACTIVE=ACTIVE436,11272
+	enum PtStatus {ACTIVE=0, INACTIVE,436,11272
+	enum PtStatus {ACTIVE=0, INACTIVE, OUTLIER,436,11272
+	enum PtStatus {ACTIVE=0, INACTIVE, OUTLIER, OOB,436,11272
+	enum PtStatus {ACTIVE=0, INACTIVE, OUTLIER, OOB, MARGINALIZED}MARGINALIZED436,11272
+	PtStatus status;437,11337
+    inline void setPointStatus(439,11356
+	inline void setIdepth(442,11413
+	inline void setIdepthScaled(446,11530
+	inline void setIdepthZero(450,11682
+	std::vector<PointFrameResidual*> residuals;457,11860
+	std::pair<std::pair458,11985
+	std::pair<PointFrameResidual*, ResState> lastResiduals[lastResiduals458,11985
+    inline ~PointHessian(463,12245
+	inline bool isOOB(466,12326
+	inline bool isInlierNew(492,13078
+
+src/FullSystem/FullSystemMarginalize.cpp,167
+namespace dso53,1512
+void FullSystem::flagFramesForMarginalization(flagFramesForMarginalization58,1531
+void FullSystem::marginalizeFrame(marginalizeFrame152,4522
+
+src/FullSystem/PixelSelector2.cpp,311
+namespace dso37,1129
+PixelSelector::PixelSelector(PixelSelector41,1147
+PixelSelector::~PixelSelector(~PixelSelector58,1532
+int computeHistQuantil(66,1652
+void PixelSelector::makeHists(makeHists78,1816
+int PixelSelector::makeMaps(makeMaps142,3104
+Eigen::Vector3i PixelSelector::select(select295,6918
+
+src/FullSystem/CoarseTracker.h,2178
+class CoarseTracker 44,1206
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;46,1236
+	CoarseTracker(48,1271
+	~CoarseTracker(49,1301
+	bool trackNewestCoarse(51,1321
+	void setCoarseTrackingRef(57,1505
+	void makeK(60,1580
+	bool debugPrint,63,1620
+	bool debugPrint, debugPlot;63,1620
+	Mat33f K[K65,1650
+	Mat33f Ki[Ki66,1673
+	float fx[fx67,1697
+	float fy[fy68,1720
+	float fxi[fxi69,1743
+	float fyi[fyi70,1767
+	float cx[cx71,1791
+	float cy[cy72,1814
+	float cxi[cxi73,1837
+	float cyi[cyi74,1861
+	int w[w75,1885
+	int h[h76,1905
+    void debugPlotIDepthMap(78,1926
+    void debugPlotIDepthMapFloat(79,2029
+	FrameHessian* lastRef;81,2110
+	AffLight lastRef_aff_g2l;82,2134
+	FrameHessian* newFrame;83,2161
+	int refFrameID;84,2186
+	Vec5 lastResiduals;87,2227
+	Vec3 lastFlowIndicators;88,2248
+	double firstCoarseRMSE;89,2274
+	void makeCoarseDepthL0(93,2310
+	float* idepth[idepth94,2377
+	float* weightSums[weightSums95,2405
+	float* weightSums_bak[weightSums_bak96,2437
+	Vec6 calcResAndGS(99,2475
+	Vec6 calcRes(100,2586
+	void calcGSSSE(101,2665
+	void calcGS(102,2757
+	float* pc_u[pc_u105,2862
+	float* pc_v[pc_v106,2888
+	float* pc_idepth[pc_idepth107,2914
+	float* pc_color[pc_color108,2945
+	int pc_n[pc_n109,2975
+	float* buf_warped_idepth;112,3018
+	float* buf_warped_u;113,3045
+	float* buf_warped_v;114,3067
+	float* buf_warped_dx;115,3089
+	float* buf_warped_dy;116,3112
+	float* buf_warped_residual;117,3135
+	float* buf_warped_weight;118,3164
+	float* buf_warped_refColor;119,3191
+	int buf_warped_n;120,3220
+    std::vector<float*> ptrToDelete;123,3241
+	Accumulator9 acc;126,3280
+class CoarseDistanceMap 130,3304
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;132,3338
+	float* fwdWarpedIDDistFinal;147,3633
+	Mat33f K[K149,3664
+	Mat33f Ki[Ki150,3687
+	float fx[fx151,3711
+	float fy[fy152,3734
+	float fxi[fxi153,3757
+	float fyi[fyi154,3781
+	float cx[cx155,3805
+	float cy[cy156,3828
+	float cxi[cxi157,3851
+	float cyi[cyi158,3875
+	int w[w159,3899
+	int h[h160,3919
+	PointFrameResidual** coarseProjectionGrid;167,3990
+	int* coarseProjectionGridNum;168,4034
+	Eigen::Vector2i* bfsList1;169,4065
+	Eigen::Vector2i* bfsList2;170,4093
+
+src/FullSystem/ImmaturePoint.h,991
+struct ImmaturePointTemporaryResidual35,1020
+	ResState state_state;38,1068
+	double state_energy;39,1091
+	ResState state_NewState;40,1113
+	double state_NewEnergy;41,1139
+	FrameHessian* target;42,1164
+enum ImmaturePointStatus 46,1192
+	IPS_GOOD=47,1219
+	IPS_OOB,48,1260
+	IPS_OUTLIER,49,1310
+	IPS_SKIPPED,50,1374
+	IPS_BADCONDITION,51,1442
+	IPS_UNINITIALIZED}IPS_UNINITIALIZED52,1503
+class ImmaturePoint55,1553
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;58,1583
+	float color[color60,1635
+	float weights[weights61,1668
+	Mat22f gradH;67,1708
+	Vec2f gradH_ev;68,1723
+	Mat22f gradH_eig;69,1740
+	float energyTH;70,1759
+	float u,71,1776
+	float u,v;71,1776
+	FrameHessian* host;72,1788
+	int idxInImmaturePoints;73,1809
+	float quality;75,1836
+	float my_type;77,1853
+	float idepth_min;79,1870
+	float idepth_max;80,1889
+	ImmaturePointStatus lastTraceStatus;86,2206
+	Vec2f lastTraceUV;87,2244
+	float lastTracePixelInterval;88,2264
+	float idepth_GT;90,2296
+private:private107,2729
+
+src/FullSystem/ResidualProjections.h,116
+namespace dso32,1061
+EIGEN_STRONG_INLINE bool projectPoint(47,1377
+EIGEN_STRONG_INLINE bool projectPoint(61,1697
+
+src/FullSystem/FullSystemOptimize.cpp,826
+namespace dso45,1357
+void FullSystem::linearizeAll_Reductor(linearizeAll_Reductor52,1378
+void FullSystem::applyRes_Reductor(applyRes_Reductor88,2357
+void FullSystem::setNewFrameEnergyTH(setNewFrameEnergyTH93,2521
+Vec3 FullSystem::linearizeAll(linearizeAll142,3935
+bool FullSystem::doStepFromBackup(doStepFromBackup216,5589
+void FullSystem::backupState(backupState314,8268
+void FullSystem::loadSateBackup(loadSateBackup362,9302
+double FullSystem::calcMEnergy(calcMEnergy383,9645
+void FullSystem::printOptRes(printOptRes394,9866
+float FullSystem::optimize(optimize408,10166
+void FullSystem::solveSystem(solveSystem608,14819
+double FullSystem::calcLEnergy(calcLEnergy621,15094
+void FullSystem::removeOutliers(removeOutliers631,15221
+std::vector<VecX> FullSystem::getNullspaces(getNullspaces658,15740
+
+src/FullSystem/Residuals.cpp,446
+namespace dso49,1433
+int PointFrameResidual::instanceCounter 51,1449
+long runningResID=54,1496
+PointFrameResidual::PointFrameResidual(PointFrameResidual57,1519
+PointFrameResidual::~PointFrameResidual(~PointFrameResidual59,1596
+PointFrameResidual::PointFrameResidual(61,1692
+double PointFrameResidual::linearize(linearize78,1974
+void PointFrameResidual::debugPlot(debugPlot278,7088
+void PointFrameResidual::applyRes(applyRes306,7801
+
+src/FullSystem/CoarseInitializer.cpp,992
+namespace dso45,1351
+CoarseInitializer::CoarseInitializer(48,1368
+CoarseInitializer::~CoarseInitializer(~CoarseInitializer69,1878
+bool CoarseInitializer::trackFrame(trackFrame81,2062
+void CoarseInitializer::debugPlot(debugPlot278,6726
+Vec3f CoarseInitializer::calcResAndGS(calcResAndGS329,7836
+float CoarseInitializer::rescale(rescale588,14435
+Vec3f CoarseInitializer::calcEC(calcEC611,14909
+void CoarseInitializer::optReg(optReg632,15560
+void CoarseInitializer::propagateUp(propagateUp671,16181
+void CoarseInitializer::propagateDown(propagateDown712,16949
+void CoarseInitializer::makeGradients(makeGradients743,17658
+void CoarseInitializer::setFirst(setFirst767,18374
+void CoarseInitializer::resetPoints(resetPoints854,20411
+void CoarseInitializer::doStep(doStep882,20967
+void CoarseInitializer::applyStep(applyStep911,21658
+void CoarseInitializer::makeK(makeK930,22085
+void CoarseInitializer::makeNN(makeNN964,22864
+			FLANNPointcloud,2> KDTree;970,23036
+
+src/FullSystem/FullSystem.h,2703
+#define MAX_ACTIVE_FRAMES 26,933
+template<typename T> inline void deleteOut(64,1676
+template<typename T> inline void deleteOutPt(70,1803
+template<typename T> inline void deleteOutOrder(81,1995
+template<typename T> inline void deleteOutOrder(88,2167
+inline bool eigenTestNan(109,2471
+class FullSystem 132,2791
+    std::vector<IOWrap::Output3DWrapper*> outputWrapper;154,3334
+	bool isLost;156,3392
+	bool initFailed;157,3406
+	bool initialized;158,3424
+	bool linearizeOperation;159,3443
+	CalibHessian Hcalib;167,3601
+	std::ofstream* calibLog;225,5537
+	std::ofstream* numsLog;226,5563
+	std::ofstream* errorsLog;227,5588
+	std::ofstream* eigenAllLog;228,5615
+	std::ofstream* eigenPLog;229,5644
+	std::ofstream* eigenALog;230,5671
+	std::ofstream* DiagonalLog;231,5698
+	std::ofstream* variancesLog;232,5727
+	std::ofstream* nullspacesLog;233,5757
+	std::ofstream* coarseTrackingLog;235,5789
+	long int statistics_lastNumOptIts;238,5840
+	long int statistics_numDroppedPoints;239,5876
+	long int statistics_numActivatedPoints;240,5915
+	long int statistics_numCreatedPoints;241,5956
+	long int statistics_numForceDroppedResBwd;242,5995
+	long int statistics_numForceDroppedResFwd;243,6039
+	long int statistics_numMargResFwd;244,6083
+	long int statistics_numMargResBwd;245,6119
+	float statistics_lastFineTrackRMSE;246,6155
+	boost::mutex trackMutex;255,6287
+	std::vector<FrameShell*> allFrameHistory;256,6313
+	CoarseInitializer* coarseInitializer;257,6356
+	Vec5 lastCoarseRMSE;258,6395
+	boost::mutex mapMutex;262,6506
+	std::vector<FrameShell*> allKeyFramesHistory;263,6530
+	EnergyFunctional* ef;265,6578
+	IndexThreadReduce<Vec10> treadReduce;266,6601
+	float* selectionMap;268,6641
+	PixelSelector* pixelSelector;269,6663
+	CoarseDistanceMap* coarseDistanceMap;270,6694
+	std::vector<FrameHessian*> frameHessians;272,6734
+	std::vector<PointFrameResidual*> activeResiduals;273,6827
+	float currentMinActDist;274,6878
+	std::vector<float> allResVec;277,6906
+	boost::mutex coarseTrackerSwapMutex;282,6977
+	CoarseTracker* coarseTracker_forNewKF;283,7125
+	CoarseTracker* coarseTracker;284,7230
+	float minIdJetVisTracker,285,7328
+	float minIdJetVisTracker, maxIdJetVisTracker;285,7328
+	float minIdJetVisDebug,286,7375
+	float minIdJetVisDebug, maxIdJetVisDebug;286,7375
+	boost::mutex shellPoseMutex;293,7503
+	boost::mutex trackMapSyncMutex;308,7838
+	boost::condition_variable trackedFrameSignal;309,7871
+	boost::condition_variable mappedFrameSignal;310,7918
+	std::deque<FrameHessian*> unmappedTrackedFrames;311,7964
+	int needNewKFAfter;312,8014
+	boost::thread mappingThread;313,8112
+	bool runMapping;314,8142
+	bool needToKetchupMapping;315,8160
+	int lastRefStopID;317,8189
+
+src/FullSystem/HessianBlocks.cpp,307
+namespace dso31,1085
+PointHessian::PointHessian(PointHessian35,1103
+void PointHessian::release(release67,1797
+void FrameHessian::setStateZero(setStateZero74,1919
+void FrameHessian::release(release111,3244
+void FrameHessian::makeImages(makeImages128,3762
+void FrameFramePrecalc::set(set193,5125
+
+src/FullSystem/PixelSelector2.h,706
+enum PixelSelectorStatus 32,979
+enum PixelSelectorStatus {PIXSEL_VOID=PIXSEL_VOID32,979
+enum PixelSelectorStatus {PIXSEL_VOID=0, PIXSEL_1,32,979
+enum PixelSelectorStatus {PIXSEL_VOID=0, PIXSEL_1, PIXSEL_2,32,979
+enum PixelSelectorStatus {PIXSEL_VOID=0, PIXSEL_1, PIXSEL_2, PIXSEL_3}PIXSEL_332,979
+class PixelSelector37,1074
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;40,1104
+	int makeMaps(41,1138
+	PixelSelector(45,1279
+	~PixelSelector(46,1309
+	int currentPotential;47,1328
+	bool allowFast;50,1353
+	void makeHists(51,1370
+	unsigned char* randomPattern;58,1530
+	int* gradHist;61,1563
+	float* ths;62,1579
+	float* thsSmoothed;63,1592
+	int thsStep;64,1613
+	const FrameHessian* gradHistFrame;65,1627
+
+src/FullSystem/CoarseInitializer.h,1974
+struct Pnt43,1178
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;46,1199
+	float u,48,1306
+	float u,v;48,1306
+	float idepth;51,1369
+	bool isGood;52,1384
+	Vec2f energy;53,1398
+	bool isGood_new;54,1457
+	float idepth_new;55,1475
+	Vec2f energy_new;56,1494
+	float iR;58,1514
+	float iRSumNum;59,1525
+	float lastHessian;61,1543
+	float lastHessian_new;62,1563
+	float maxstep;65,1665
+	int parent;68,1740
+	float parentDist;69,1753
+	int neighbours[neighbours72,1832
+	float neighboursDist[neighboursDist73,1853
+	float my_type;75,1881
+	float outlierTH;76,1897
+class CoarseInitializer 79,1919
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;81,1953
+	int frameID;90,2261
+	bool fixAffine;91,2275
+	bool printDebug;92,2292
+	Pnt* points[points94,2311
+	int numPoints[numPoints95,2337
+	AffLight thisToNext_aff;96,2365
+	SE3 thisToNext;97,2391
+	FrameHessian* firstFrame;100,2410
+	FrameHessian* newFrame;101,2437
+	Mat33 K[K103,2471
+	Mat33 Ki[Ki104,2493
+	double fx[fx105,2516
+	double fy[fy106,2540
+	double fxi[fxi107,2564
+	double fyi[fyi108,2589
+	double cx[cx109,2614
+	double cy[cy110,2638
+	double cxi[cxi111,2662
+	double cyi[cyi112,2687
+	int w[w113,2712
+	int h[h114,2732
+	bool snapped;117,2788
+	int snappedAt;118,2803
+	Eigen::Vector3f* dINew[dINew121,2862
+	Eigen::Vector3f* dIFist[dIFist122,2899
+	Eigen::DiagonalMatrix<Eigen::DiagonalMatrix124,2938
+	Eigen::DiagonalMatrix<float, 8> wM;124,2938
+	Vec10f* JbBuffer;127,3011
+	Vec10f* JbBuffer_new;128,3113
+	Accumulator9 acc9;130,3137
+	Accumulator9 acc9SC;131,3157
+	Vec3f dGrads[dGrads134,3181
+	float alphaK;136,3209
+	float alphaW;137,3224
+	float regWeight;138,3239
+	float couplingWeight;139,3257
+struct FLANNPointcloud167,3869
+    inline FLANNPointcloud(169,3894
+    inline FLANNPointcloud(170,3942
+	int num;171,4008
+	Pnt* points;172,4018
+	inline size_t kdtree_get_point_count(173,4032
+	inline float kdtree_distance(174,4094
+	inline float kdtree_get_pt(181,4295
+		bool kdtree_get_bbox(187,4450
+
+src/FullSystem/FullSystemOptPoint.cpp,101
+namespace dso46,1299
+PointHessian* FullSystem::optimizeImmaturePoint(optimizeImmaturePoint51,1318
+
+src/FullSystem/CoarseTracker.cpp,1101
+namespace dso44,1350
+template<int b,48,1368
+T* allocAligned(49,1396
+CoarseTracker::CoarseTracker(59,1653
+CoarseTracker::~CoarseTracker(~CoarseTracker95,2961
+void CoarseTracker::makeK(makeK102,3079
+void CoarseTracker::makeCoarseDepthL0(makeCoarseDepthL0135,3853
+void CoarseTracker::calcGSSSE(calcGSSSE296,8401
+Vec6 CoarseTracker::calcRes(calcRes358,10413
+void CoarseTracker::setCoarseTrackingRef(setCoarseTrackingRef521,14722
+bool CoarseTracker::trackNewestCoarse(trackNewestCoarse536,15012
+void CoarseTracker::debugPlotIDepthMap(debugPlotIDepthMap722,20537
+void CoarseTracker::debugPlotIDepthMapFloat(debugPlotIDepthMapFloat822,22728
+CoarseDistanceMap::CoarseDistanceMap(CoarseDistanceMap841,23021
+CoarseDistanceMap::~CoarseDistanceMap(~CoarseDistanceMap856,23386
+void CoarseDistanceMap::makeDistanceMap(makeDistanceMap869,23574
+void CoarseDistanceMap::makeInlierVotes(makeInlierVotes910,24554
+void CoarseDistanceMap::growDistBFS(growDistBFS917,24644
+void CoarseDistanceMap::addIntoDistFinal(addIntoDistFinal1014,27068
+void CoarseDistanceMap::makeK(makeK1024,27244
+
+src/FullSystem/PixelSelector.h,96
+namespace dso33,966
+inline int gridMaxSelection(120,2531
+inline int makePixelStatus(199,4031
+
+src/FullSystem/FullSystem.cpp,1694
+namespace dso59,1705
+  int FrameHessian::instanceCounter=61,1721
+  int PointHessian::instanceCounter=62,1760
+  int CalibHessian::instanceCounter=63,1799
+  FullSystem::FullSystem(FullSystem67,1841
+  FullSystem::~FullSystem(~FullSystem178,4911
+  void FullSystem::setOriginalCalib(setOriginalCalib211,5835
+  void FullSystem::setGammaFunction(setGammaFunction216,5939
+  void FullSystem::printResult(printResult245,6541
+  Vec4 FullSystem::trackNewCoarse(trackNewCoarse271,7347
+  void FullSystem::traceNewCoarse(traceNewCoarse463,18267
+  void FullSystem::activatePointsMT_Reductor(activatePointsMT_Reductor510,20352
+  void FullSystem::activatePointsMT(activatePointsMT525,20898
+  void FullSystem::activatePointsOldFirst(activatePointsOldFirst700,26964
+  void FullSystem::flagPointsForRemoval(flagPointsForRemoval705,27036
+  void FullSystem::addActiveFrame(addActiveFrame802,30306
+  void FullSystem::deliverTrackedFrame(deliverTrackedFrame904,33788
+  void FullSystem::mappingLoop(mappingLoop945,34879
+  void FullSystem::blockUntilMappingIsFinished(blockUntilMappingIsFinished1016,36996
+  void FullSystem::makeNonKeyFrame(makeNonKeyFrame1027,37224
+  void FullSystem::makeKeyFrame(makeKeyFrame1041,37712
+  void FullSystem::initializeFromInitializer(initializeFromInitializer1199,41972
+  void FullSystem::makeNewTraces(makeNewTraces1286,45194
+  void FullSystem::setPrecalcValues(setPrecalcValues1315,46291
+  void FullSystem::printLogLine(printLogLine1328,46606
+  void FullSystem::printEigenValLine(printEigenValLine1376,48308
+  void FullSystem::printFrameLifetimes(printFrameLifetimes1458,51111
+  void FullSystem::printEvalLine(printEvalLine1492,51726
+
+src/FullSystem/ImmaturePoint.cpp,353
+namespace dso30,1033
+ImmaturePoint::ImmaturePoint(32,1049
+ImmaturePoint::~ImmaturePoint(~ImmaturePoint63,1874
+ImmaturePointStatus ImmaturePoint::traceOn(traceOn75,2060
+float ImmaturePoint::getdPixdd(getdPixdd417,12571
+float ImmaturePoint::calcResidual(calcResidual437,13168
+double ImmaturePoint::linearizeResidual(linearizeResidual476,14371
+
+src/FullSystem/FullSystemDebugStuff.cpp,133
+namespace dso48,1334
+	void FullSystem::debugPlotTracking(debugPlotTracking52,1352
+	void FullSystem::debugPlot(debugPlot109,2793
+
+src/OptimizationBackend/EnergyFunctionalStructs.h,1549
+class EFResidual51,1234
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;54,1261
+	inline EFResidual(56,1296
+	inline ~EFResidual(65,1598
+	void takeDataF(71,1640
+	void fixLinearizationF(74,1661
+	PointFrameResidual* data;78,1734
+	int hostIDX,79,1761
+	int hostIDX, targetIDX;79,1761
+	EFPoint* point;80,1786
+	EFFrame* host;81,1803
+	EFFrame* target;82,1819
+	int idxInAll;83,1837
+	RawResidualJacobian* J;85,1853
+	VecNRf res_toZeroF;87,1879
+	Vec8f JpJdF;88,1900
+	bool isLinearized;92,1928
+	bool isActiveAndIsGoodNEW;95,2028
+	inline const bool &isActive(isActive96,2056
+enum EFPointStatus 100,2129
+enum EFPointStatus {PS_GOOD=PS_GOOD100,2129
+enum EFPointStatus {PS_GOOD=0, PS_MARGINALIZE,100,2129
+enum EFPointStatus {PS_GOOD=0, PS_MARGINALIZE, PS_DROP}PS_DROP100,2129
+class EFPoint102,2187
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW;105,2211
+	EFPoint(106,2248
+	PointHessian* data;113,2387
+	float priorF;117,2411
+	float deltaF;118,2426
+	int idxInPoints;122,2489
+	EFFrame* host;123,2507
+	std::vector<EFResidual*> residualsAll;126,2552
+	float bdSumF;128,2593
+	float HdiF;129,2608
+	float Hdd_accLF;130,2621
+	VecCf Hcd_accLF;131,2639
+	float bd_accLF;132,2657
+	float Hdd_accAF;133,2674
+	VecCf Hcd_accAF;134,2692
+	float bd_accAF;135,2710
+	EFPointStatus stateFlag;138,2729
+class EFFrame143,2761
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW;146,2785
+	EFFrame(147,2822
+	Vec8 prior;154,2898
+	Vec8 delta_prior;155,2942
+	Vec8 delta;156,3041
+	std::vector<EFPoint*> points;160,3083
+	FrameHessian* data;161,3114
+	int idx;162,3135
+	int frameID;164,3164
+
+src/OptimizationBackend/AccumulatedTopHessian.cpp,230
+namespace dso34,1200
+void AccumulatedTopHessianSSE::addPoint(addPoint40,1238
+void AccumulatedTopHessianSSE::stitchDouble(stitchDouble171,4663
+void AccumulatedTopHessianSSE::stitchDoubleInternal(stitchDoubleInternal241,6847
+
+src/OptimizationBackend/AccumulatedSCHessian.cpp,226
+namespace dso31,1121
+void AccumulatedSCHessianSSE::addPoint(addPoint34,1138
+void AccumulatedSCHessianSSE::stitchDoubleInternal(stitchDoubleInternal78,2269
+void AccumulatedSCHessianSSE::stitchDouble(stitchDouble159,4444
+
+src/OptimizationBackend/EnergyFunctionalStructs.cpp,212
+namespace dso35,1232
+void EFResidual::takeDataF(takeDataF39,1250
+void EFFrame::takeData(takeData52,1509
+void EFPoint::takeData(takeData79,2201
+void EFResidual::fixLinearizationF(fixLinearizationF88,2421
+
+src/OptimizationBackend/EnergyFunctional.h,1710
+class EnergyFunctional 60,1436
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;62,1469
+	EnergyFunctional(71,1728
+	~EnergyFunctional(72,1749
+	EFResidual* insertResidual(75,1773
+	EFFrame* insertFrame(76,1825
+	EFPoint* insertPoint(77,1888
+	void dropResidual(79,1930
+	void marginalizeFrame(80,1965
+	void removePoint(81,2002
+	void marginalizePointsF(85,2037
+	void dropPointsF(86,2065
+	void solveSystemF(87,2086
+	double calcMEnergyF(88,2158
+	double calcLEnergyF_MT(89,2182
+	void makeIDX(92,2211
+	void setDeltaF(94,2229
+	void setAdjointsF(96,2269
+	std::vector<EFFrame*> frames;98,2312
+	int nPoints,99,2343
+	int nPoints, nFrames,99,2343
+	int nPoints, nFrames, nResiduals;99,2343
+	MatXX HM;101,2379
+	VecX bM;102,2390
+	int resInA,104,2401
+	int resInA, resInL,104,2401
+	int resInA, resInL, resInM;104,2401
+	MatXX lastHS;105,2430
+	VecX lastbS;106,2445
+	VecX lastX;107,2459
+	std::vector<VecX> lastNullspaces_forLogging;108,2472
+	std::vector<VecX> lastNullspaces_pose;109,2518
+	std::vector<VecX> lastNullspaces_scale;110,2558
+	std::vector<VecX> lastNullspaces_affA;111,2599
+	std::vector<VecX> lastNullspaces_affB;112,2639
+	IndexThreadReduce<Vec10>* red;114,2680
+	std::map<std::map117,2714
+	  > connectivityMap;121,2844
+	Mat18f* adHTdeltaF;137,3330
+	Mat88* adHost;139,3352
+	Mat88* adTarget;140,3368
+	Mat88f* adHostF;142,3387
+	Mat88f* adTargetF;143,3405
+	VecC cPrior;146,3427
+	VecCf cDeltaF;147,3441
+	VecCf cPriorF;148,3457
+	AccumulatedTopHessianSSE* accSSE_top_L;150,3474
+	AccumulatedTopHessianSSE* accSSE_top_A;151,3515
+	AccumulatedSCHessianSSE* accSSE_bot;154,3558
+	std::vector<EFPoint*> allPoints;156,3597
+	std::vector<EFPoint*> allPointsToMarg;157,3631
+	float currentLambda;159,3672
+
+src/OptimizationBackend/MatrixAccumulators.h,3979
+class AccumulatorXX37,1098
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;40,1128
+  Eigen::Matrix<Eigen::Matrix42,1164
+  Eigen::Matrix<float,i,j> A;42,1164
+  Eigen::Matrix<Eigen::Matrix43,1194
+  Eigen::Matrix<float,i,j> A1k;43,1194
+  Eigen::Matrix<Eigen::Matrix44,1226
+  Eigen::Matrix<float,i,j> A1m;44,1226
+  size_t num;45,1258
+  inline void initialize(47,1273
+  inline void finish(55,1406
+  inline void update(62,1493
+  float numIn1,70,1670
+  float numIn1, numIn1k,70,1670
+  float numIn1, numIn1k, numIn1m;70,1670
+  void shiftUp(72,1705
+class Accumulator1191,1963
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;94,1993
+  float A;96,2029
+  size_t num;97,2040
+  inline void initialize(99,2055
+  inline void finish(108,2272
+  inline void updateSingle(115,2391
+  inline void updateSSE(123,2510
+  inline void updateSingleNoShift(132,2673
+  inline void updateSSENoShift(139,2780
+  EIGEN_ALIGN16 float SSEData[SSEData150,2942
+  EIGEN_ALIGN16 float SSEData1k[SSEData1k151,2978
+  EIGEN_ALIGN16 float SSEData1m[SSEData1m152,3016
+  float numIn1,153,3054
+  float numIn1, numIn1k,153,3054
+  float numIn1, numIn1k, numIn1m;153,3054
+  void shiftUp(156,3090
+class AccumulatorX178,3555
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;181,3584
+  Eigen::Matrix<Eigen::Matrix183,3620
+  Eigen::Matrix<float,i,1> A;183,3620
+  Eigen::Matrix<Eigen::Matrix184,3650
+  Eigen::Matrix<float,i,1> A1k;184,3650
+  Eigen::Matrix<Eigen::Matrix185,3682
+  Eigen::Matrix<float,i,1> A1m;185,3682
+  size_t num;186,3714
+  inline void initialize(188,3729
+  inline void finish(196,3862
+  inline void update(203,3942
+  inline void updateNoWeight(210,4061
+  float numIn1,218,4186
+  float numIn1, numIn1k,218,4186
+  float numIn1, numIn1k, numIn1m;218,4186
+  void shiftUp(220,4221
+class Accumulator14246,4486
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;249,4516
+  Mat1414f H;251,4552
+  Vec14f b;252,4566
+  size_t num;253,4578
+  inline void initialize(255,4593
+  inline void finish(265,4835
+  inline void updateSSE(285,5190
+  inline void updateSingle(420,13502
+  EIGEN_ALIGN16 float SSEData[SSEData557,16476
+  EIGEN_ALIGN16 float SSEData1k[SSEData1k558,16514
+  EIGEN_ALIGN16 float SSEData1m[SSEData1m559,16554
+  float numIn1,560,16594
+  float numIn1, numIn1k,560,16594
+  float numIn1, numIn1k, numIn1m;560,16594
+  void shiftUp(563,16630
+class AccumulatorApprox595,17364
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;598,17398
+  Mat1313f H;600,17434
+  size_t num;601,17448
+  inline void initialize(603,17463
+inline void finish(619,17921
+  inline void updateSSE(657,18529
+  inline void update(754,22765
+  inline void updateTopRight(850,27365
+  inline void updateBotRight(901,29115
+  EIGEN_ALIGN16 float Data[Data920,29459
+  EIGEN_ALIGN16 float Data1k[Data1k921,29491
+  EIGEN_ALIGN16 float Data1m[Data1m922,29525
+  EIGEN_ALIGN16 float TopRight_Data[TopRight_Data924,29560
+  EIGEN_ALIGN16 float TopRight_Data1k[TopRight_Data1k925,29601
+  EIGEN_ALIGN16 float TopRight_Data1m[TopRight_Data1m926,29644
+  EIGEN_ALIGN16 float BotRight_Data[BotRight_Data928,29688
+  EIGEN_ALIGN16 float BotRight_Data1k[BotRight_Data1k929,29728
+  EIGEN_ALIGN16 float BotRight_Data1m[BotRight_Data1m930,29770
+  float numIn1,933,29814
+  float numIn1, numIn1k,933,29814
+  float numIn1, numIn1k, numIn1m;933,29814
+  void shiftUp(937,29851
+class Accumulator9982,31101
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;985,31130
+  Mat99f H;987,31166
+  Vec9f b;988,31178
+  size_t num;989,31189
+  inline void initialize(991,31204
+  inline void finish(1001,31443
+  inline void updateSSE(1020,31758
+  inline void updateSSE_eighted(1091,35414
+  inline void updateSingle(1169,39443
+  inline void updateSingleWeighted(1242,40814
+  EIGEN_ALIGN16 float SSEData[SSEData1319,42241
+  EIGEN_ALIGN16 float SSEData1k[SSEData1k1320,42278
+  EIGEN_ALIGN16 float SSEData1m[SSEData1m1321,42317
+  float numIn1,1322,42356
+  float numIn1, numIn1k,1322,42356
+  float numIn1, numIn1k, numIn1m;1322,42356
+  void shiftUp(1325,42392
+
+src/OptimizationBackend/AccumulatedTopHessian.h,458
+class AccumulatedTopHessianSSE43,1147
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;46,1188
+	inline AccumulatedTopHessianSSE(47,1222
+	inline ~AccumulatedTopHessianSSE(57,1365
+	inline void setZero(65,1499
+	void stitchDouble(85,1912
+	template<int mode> void addPoint(87,2028
+	void stitchDoubleMT(91,2124
+	int nframes[nframes144,3499
+	EIGEN_ALIGN16 AccumulatorApprox* acc[acc146,3527
+	int nres[nres149,3581
+	template<int mode> void addPointsInternal(152,3607
+
+src/OptimizationBackend/EnergyFunctional.cpp,1617
+namespace dso37,1341
+bool EFAdjointsValid 41,1359
+bool EFIndicesValid 42,1389
+bool EFDeltaValid 43,1418
+void EnergyFunctional::setAdjointsF(setAdjointsF46,1447
+EnergyFunctional::EnergyFunctional(EnergyFunctional110,3144
+EnergyFunctional::~EnergyFunctional(~EnergyFunctional135,3550
+void EnergyFunctional::setDeltaF(setDeltaF171,4087
+void EnergyFunctional::accumulateAF_MT(accumulateAF_MT197,4917
+void EnergyFunctional::accumulateLF_MT(accumulateLF_MT219,5624
+void EnergyFunctional::accumulateSCF_MT(accumulateSCF_MT244,6306
+void EnergyFunctional::resubstituteF_MT(resubstituteF_MT263,6890
+void EnergyFunctional::resubstituteFPt(resubstituteFPt291,7736
+double EnergyFunctional::calcMEnergyF(calcMEnergyF320,8351
+void EnergyFunctional::calcLEnergyPt(calcLEnergyPt332,8544
+double EnergyFunctional::calcLEnergyF_MT(calcLEnergyF_MT397,10433
+EFResidual* EnergyFunctional::insertResidual(insertResidual417,10860
+EFFrame* EnergyFunctional::insertFrame(insertFrame429,11286
+EFPoint* EnergyFunctional::insertPoint(insertPoint462,12108
+void EnergyFunctional::dropResidual(dropResidual477,12393
+void EnergyFunctional::marginalizeFrame(marginalizeFrame498,12940
+void EnergyFunctional::marginalizePointsF(marginalizePointsF615,16128
+void EnergyFunctional::dropPointsF(dropPointsF678,17544
+void EnergyFunctional::removePoint(removePoint700,17825
+void EnergyFunctional::orthogonalize(orthogonalize718,18160
+void EnergyFunctional::solveSystemF(solveSystemF775,20054
+void EnergyFunctional::makeIDX(makeIDX914,22928
+VecX EnergyFunctional::getStitchedDeltaF(getStitchedDeltaF937,23295
+
+src/OptimizationBackend/AccumulatedSCHessian.h,678
+class AccumulatedSCHessianSSE41,1145
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;44,1185
+	inline AccumulatedSCHessianSSE(45,1219
+	inline ~AccumulatedSCHessianSSE(55,1361
+	inline void setZero(65,1561
+	void stitchDouble(89,2168
+	void addPoint(90,2259
+	void stitchDoubleMT(93,2323
+	AccumulatorXX<AccumulatorXX136,3405
+	AccumulatorXX<8,CPARS>* accE[accE136,3405
+	AccumulatorX<8>* accEB[accEB137,3449
+	AccumulatorXX<AccumulatorXX138,3487
+	AccumulatorXX<8,8>* accD[accD138,3487
+	AccumulatorXX<AccumulatorXX139,3527
+	AccumulatorXX<CPARS,CPARS> accHcc[accHcc139,3527
+	AccumulatorX<CPARS> accbc[accbc140,3576
+	int nframes[nframes141,3617
+	void addPointsInternal(144,3646
+
+src/OptimizationBackend/RawResidualJacobian.h,297
+struct RawResidualJacobian32,979
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;34,1008
+	VecNRf resF;36,1114
+	Vec6f Jpdxi[Jpdxi39,1163
+	VecCf Jpdc[Jpdc42,1223
+	Vec2f Jpdd;45,1287
+	VecNRf JIdx[JIdx48,1347
+	VecNRf JabF[JabF51,1412
+	Mat22f JIdx2;55,1498
+	Mat22f JabJIdx;57,1580
+	Mat22f Jab2;59,1662
+
+src/main_dso_pangolin.cpp,506
+std::string vignette 54,1528
+std::string gammaCalib 55,1555
+std::string source 56,1584
+std::string calib 57,1609
+double rescale 58,1633
+bool reverse 59,1653
+bool disableROS 60,1675
+int start=61,1700
+int end=62,1713
+bool prefetch 63,1729
+float playbackSpeed=64,1752
+bool preload=65,1897
+bool useSampleOutput=66,1917
+int mode=69,1947
+bool firstRosSpin=71,1960
+void my_exit_handler(76,2009
+void exitThread(82,2085
+void settingsDefault(96,2340
+void parseArgument(152,3650
+int main(354,7690
+
+src/IOWrapper/OutputWrapper/SampleOutputWrapper.h,453
+class SampleOutputWrapper 46,1199
+        inline SampleOutputWrapper(49,1260
+        virtual ~SampleOutputWrapper(54,1376
+        virtual void publishGraph(59,1496
+        virtual void publishKeyframes(77,2136
+        virtual void publishCamPose(101,3270
+        virtual void pushLiveFrame(111,3628
+        virtual void pushDepthImage(116,3774
+        virtual bool needPushDepthImage(120,3921
+        virtual void pushDepthImageFloat(125,4010
+
+src/IOWrapper/Output3DWrapper.h,511
+class Output3DWrapper113,4023
+        Output3DWrapper(116,4055
+        virtual ~Output3DWrapper(117,4084
+        virtual void publishGraph(130,4695
+        virtual void publishKeyframes(149,5740
+        virtual void publishCamPose(161,6057
+        virtual void pushLiveFrame(173,6354
+        virtual void pushDepthImage(184,6786
+        virtual bool needPushDepthImage(185,6848
+        virtual void pushDepthImageFloat(196,7235
+        virtual void join(201,7352
+        virtual void reset(204,7412
+
+src/IOWrapper/ImageDisplay_dummy.cpp,362
+namespace dso28,958
+namespace IOWrap32,976
+void displayImage(34,995
+void displayImage(35,1082
+void displayImage(36,1170
+void displayImage(37,1257
+void displayImage(38,1345
+void displayImageStitch(41,1436
+void displayImageStitch(42,1546
+void displayImageStitch(43,1657
+void displayImageStitch(44,1767
+int waitKey(46,1879
+void closeAllWindows(47,1922
+
+src/IOWrapper/Pangolin/KeyFrameDisplay.h,1343
+#undef Success27,934
+struct InputPointSparse45,1181
+	float u;47,1207
+	float v;48,1217
+	float idpeth;49,1227
+	float idepth_hessian;50,1242
+	float relObsBaseline;51,1265
+	int numGoodRes;52,1288
+	unsigned char color[color53,1305
+	unsigned char status;54,1332
+struct MyVertex57,1359
+	float point[point59,1377
+	unsigned char color[color60,1394
+class KeyFrameDisplay64,1472
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;68,1505
+	int id;87,2274
+	bool active;88,2283
+	SE3 camToWorld;89,2297
+    inline bool operator < operator <91,2315
+	float fx,98,2434
+	float fx,fy,98,2434
+	float fx,fy,cx,98,2434
+	float fx,fy,cx,cy;98,2434
+	float fxi,99,2454
+	float fxi,fyi,99,2454
+	float fxi,fyi,cxi,99,2454
+	float fxi,fyi,cxi,cyi;99,2454
+	int width,100,2478
+	int width, height;100,2478
+	float my_scaledTH,102,2499
+	float my_scaledTH, my_absTH,102,2499
+	float my_scaledTH, my_absTH, my_scale;102,2499
+	int my_sparsifyFactor;103,2539
+	int my_displayMode;104,2563
+	float my_minRelBS;105,2584
+	bool needRefresh;106,2604
+	int numSparsePoints;109,2625
+	int numSparseBufferSize;110,2647
+    InputPointSparse<MAX_RES_PER_POINT>* originalInputSparse;111,2673
+	bool bufferValid;114,2737
+	int numGLBufferPoints;115,2756
+	int numGLBufferGoodPoints;116,2780
+	pangolin::GlBuffer vertexBuffer;117,2808
+	pangolin::GlBuffer colorBuffer;118,2842
+
+src/IOWrapper/Pangolin/PangolinDSOViewer.h,1775
+struct GraphConnection47,1217
+	KeyFrameDisplay* from;49,1242
+	KeyFrameDisplay* to;50,1266
+	int fwdMarg,51,1288
+	int fwdMarg, bwdMarg,51,1288
+	int fwdMarg, bwdMarg, fwdAct,51,1288
+	int fwdMarg, bwdMarg, fwdAct, bwdAct;51,1288
+class PangolinDSOViewer 55,1332
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;58,1391
+	bool needReset;84,2196
+	boost::thread runThread;88,2263
+	bool running;89,2289
+	int w,90,2304
+	int w,h;90,2304
+	boost::mutex openImagesMutex;95,2338
+	MinimalImageB3* internalVideoImg;96,2369
+	MinimalImageB3* internalKFImg;97,2404
+	MinimalImageB3* internalResImg;98,2436
+	bool videoImgChanged,99,2469
+	bool videoImgChanged, kfImgChanged,99,2469
+	bool videoImgChanged, kfImgChanged, resImgChanged;99,2469
+	boost::mutex model3DMutex;104,2547
+	KeyFrameDisplay* currentCam;105,2575
+	std::vector<KeyFrameDisplay*> keyframes;106,2605
+	std::vector<std::vector107,2647
+	std::vector<Vec3f,Eigen::aligned_allocator<Vec3f>> allFramePoses;107,2647
+	std::map<std::map108,2714
+	std::map<int, KeyFrameDisplay*> keyframesByKFID;108,2714
+	std::vector<std::vector109,2764
+	std::vector<GraphConnection,Eigen::aligned_allocator<GraphConnection>> connections;109,2764
+	bool settings_showKFCameras;114,2872
+	bool settings_showCurrentCamera;115,2902
+	bool settings_showTrajectory;116,2936
+	bool settings_showFullTrajectory;117,2967
+	bool settings_showActiveConstraints;118,3002
+	bool settings_showAllConstraints;119,3040
+	float settings_scaledVarTH;121,3076
+	float settings_absVarTH;122,3105
+	int settings_pointCloudMode;123,3131
+	float settings_minRelBS;124,3161
+	int settings_sparsity;125,3187
+	struct timeval last_track;129,3225
+	struct timeval last_map;130,3253
+	std::deque<float> lastNTrackingMs;133,3281
+	std::deque<float> lastNMappingMs;134,3317
+
+src/IOWrapper/Pangolin/PangolinDSOViewer.cpp,881
+namespace dso35,1151
+namespace IOWrap37,1167
+PangolinDSOViewer::PangolinDSOViewer(PangolinDSOViewer42,1189
+PangolinDSOViewer::~PangolinDSOViewer(~PangolinDSOViewer75,1809
+void PangolinDSOViewer::run(run82,1884
+void PangolinDSOViewer::close(close299,9394
+void PangolinDSOViewer::join(join304,9449
+void PangolinDSOViewer::reset(reset310,9542
+void PangolinDSOViewer::reset_internal(reset_internal315,9598
+void PangolinDSOViewer::drawConstraints(drawConstraints337,10060
+void PangolinDSOViewer::publishGraph(publishGraph422,12187
+void PangolinDSOViewer::publishKeyframes(publishKeyframes466,13487
+void PangolinDSOViewer::publishCamPose(publishCamPose486,14018
+void PangolinDSOViewer::pushLiveFrame(pushLiveFrame506,14654
+bool PangolinDSOViewer::needPushDepthImage(needPushDepthImage522,15061
+void PangolinDSOViewer::pushDepthImage(pushDepthImage526,15150
+
+src/IOWrapper/Pangolin/KeyFrameDisplay.cpp,412
+namespace dso41,1202
+namespace IOWrap43,1218
+KeyFrameDisplay::KeyFrameDisplay(KeyFrameDisplay47,1239
+void KeyFrameDisplay::setFromF(setFromF68,1561
+void KeyFrameDisplay::setFromKF(setFromKF85,1884
+KeyFrameDisplay::~KeyFrameDisplay(~KeyFrameDisplay168,4407
+bool KeyFrameDisplay::refreshPC(refreshPC174,4510
+void KeyFrameDisplay::drawCam(drawCam321,8710
+void KeyFrameDisplay::drawPC(drawPC368,9824
+
+src/IOWrapper/ImageRW_dummy.cpp,319
+namespace dso28,953
+namespace IOWrap32,971
+MinimalImageB* readImageBW_8U(35,991
+MinimalImageB3* readImageRGB_8U(36,1091
+MinimalImage<unsigned short>* readImageBW_16U(37,1193
+MinimalImageB* readStreamBW_8U(38,1309
+void writeImage(39,1414
+void writeImage(40,1476
+void writeImage(41,1539
+void writeImage(42,1601
+
+src/IOWrapper/OpenCV/ImageDisplay_OpenCV.cpp,530
+namespace dso37,1099
+namespace IOWrap41,1117
+std::unordered_set<std::string> openWindows;44,1137
+boost::mutex openCVdisplayMutex;45,1182
+void displayImage(49,1218
+void displayImageStitch(67,1655
+void displayImage(119,2673
+void displayImage(123,2840
+void displayImage(127,3010
+void displayImage(131,3189
+void displayImage(135,3371
+void displayImageStitch(141,3543
+void displayImageStitch(150,3932
+void displayImageStitch(159,4324
+void displayImageStitch(168,4714
+int waitKey(180,5110
+void closeAllWindows(188,5274
+
+src/IOWrapper/OpenCV/ImageRW_OpenCV.cpp,325
+namespace dso30,993
+namespace IOWrap33,1010
+MinimalImageB* readImageBW_8U(35,1029
+MinimalImageB3* readImageRGB_8U(53,1498
+MinimalImage<unsigned short>* readImageBW_16U(71,1971
+MinimalImageB* readStreamBW_8U(89,2524
+void writeImage(109,3030
+void writeImage(113,3159
+void writeImage(117,3291
+void writeImage(121,3421
+
+src/IOWrapper/ImageDisplay.h,0
+
+src/IOWrapper/ImageRW.h,0
+
+src/util/globalCalib.h,0
+
+src,0

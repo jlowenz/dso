@@ -150,19 +150,20 @@ void FrameHessian::makeImages(float* color, CalibHessian* HCalib)
 		float* dabs_l = absSquaredGrad[lvl];
 		if(lvl>0)
 		{
-			int lvlm1 = lvl-1;
-			int wlm1 = wG[lvlm1];
-			Eigen::Vector3f* dI_lm = dIp[lvlm1];
+			int lvlm1 = lvl-1; // lvl m(inus) 1
+			int wlm1 = wG[lvlm1]; // width level m(inus) 1
+			Eigen::Vector3f* dI_lm = dIp[lvlm1]; // image of previous level
 
 
 
 			for(int y=0;y<hl;y++)
 				for(int x=0;x<wl;x++)
 				{
+          // average the quad from the previous level into the current level
 					dI_l[x + y*wl][0] = 0.25f * (dI_lm[2*x   + 2*y*wlm1][0] +
-												dI_lm[2*x+1 + 2*y*wlm1][0] +
-												dI_lm[2*x   + 2*y*wlm1+wlm1][0] +
-												dI_lm[2*x+1 + 2*y*wlm1+wlm1][0]);
+                                       dI_lm[2*x+1 + 2*y*wlm1][0] +
+                                       dI_lm[2*x   + 2*y*wlm1+wlm1][0] +
+                                       dI_lm[2*x+1 + 2*y*wlm1+wlm1][0]);
 				}
 		}
 
