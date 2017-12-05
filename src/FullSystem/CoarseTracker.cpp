@@ -566,12 +566,13 @@ namespace dso
 
     bool haveRepeated = false;
 
-
+    // iterate over the levels and compute the residuals
     for(int lvl=coarsestLvl; lvl>=0; lvl--)
       {
         Mat88 H; Vec8 b;
         float levelCutoffRepeat=1;
         Vec6 resOld = calcRes(lvl, refToNew_current, aff_g2l_current, setting_coarseCutoffTH*levelCutoffRepeat);
+        // if too many residuals exceeded the threshold, then try raising the threshold
         while(resOld[5] > 0.6 && levelCutoffRepeat < 50)
           {
             levelCutoffRepeat*=2;
@@ -581,6 +582,7 @@ namespace dso
               printf("INCREASING cutoff to %f (ratio is %f)!\n", setting_coarseCutoffTH*levelCutoffRepeat, resOld[5]);
           }
 
+        // compute the GS (which is......?)
         calcGSSSE(lvl, H, b, refToNew_current, aff_g2l_current);
 
         float lambda = 0.01;
